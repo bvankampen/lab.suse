@@ -1,0 +1,20 @@
+csi:
+  attacherReplicaCount: 1
+  provisionerReplicaCount: 1
+  resizerReplicaCount: 1
+  snapshotterReplicaCount: 1
+defaultSettings:
+  defaultReplicaCount: 1
+  v1DataEngine: true
+global:
+  cattle:
+    systemDefaultRegistry: registry.rancher.com
+    url: https://rancher.suse
+  systemDefaultRegistry: registry.rancher.com
+image:
+  defaultImage: true
+longhorn:
+  default_resource: false
+  default_setting: true
+persistence:
+  defaultClassReplicaCount: 1

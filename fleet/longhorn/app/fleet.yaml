@@ -1,0 +1,25 @@
+defaultNamespace: longhorn-system
+dependsOn:
+  - name: lab-suse-fleet-longhorn-crd
+
+helm:
+  repo: https://charts.rancher.io
+  chart: longhorn
+  releaseName: longhorn
+  version: 105.2.0+up1.8.1
+  valuesFiles:
+    - values.yaml
+
+targetCustomizations:
+  - name: single-node
+    helm:
+      valuesFiles:
+        - "single-node/values.yaml"
+    clusterSelector:
+      matchLabels:
+        management.cattle.io/cluster-display-name: cluster-gpu
+
+overrideTargets:
+  - clusterSelector:
+      matchLabels:
+        fleet-app-longhorn: "true"

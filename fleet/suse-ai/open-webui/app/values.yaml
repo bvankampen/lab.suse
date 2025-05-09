@@ -1,0 +1,21 @@
+global:
+  tls:
+    source: secret
+ingress:
+  annotations:
+    cert-manager.io/cluster-issuer: local-issuer
+  class: nginx
+  host: chat.lab.suse
+managedCertificate:
+  domains:
+    - chat.lab.suse
+ollama:
+  runtimeClassName: nvidia
+  persistentVolume:
+    enabled: true
+    size: 50Gi
+  image:
+    tag: 0.6.2-9.8
+persistence:
+  size: 50Gi
+  storageClass: longhorn

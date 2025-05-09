@@ -1,0 +1,8 @@
+defaultNamespace: external-secrets-system
+dependsOn:
+  - name: lab-suse-fleet-external-secrets-app
+
+overrideTargets:
+  - clusterSelector:
+      matchLabels:
+        fleet-app-external-secrets: "true"

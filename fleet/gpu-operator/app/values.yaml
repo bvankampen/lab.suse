@@ -1,0 +1,24 @@
+driver:
+  enabled: false
+devicePlugin:
+  config:
+    name: time-slicing-config
+    default: any
+    create: true
+    data:
+      any: |-
+        version: v1
+        flags:
+          migStrategy: none
+        sharing:
+          timeSlicing:
+            resources:
+            - name: nvidia.com/gpu
+              replicas: 16
+toolkit:
+  env:
+    - name: CONTAINERD_SOCKET
+      value: /run/k3s/containerd/containerd.sock
+dcgmExporter:
+  serviceMonitor:
+    enabled: false

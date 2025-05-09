@@ -1,0 +1,12 @@
+defaultSettings:
+  v1DataEngine: true
+global:
+  cattle:
+    systemDefaultRegistry: registry.rancher.com
+    url: https://rancher.suse
+  systemDefaultRegistry: registry.rancher.com
+image:
+  defaultImage: true
+longhorn:
+  default_resource: false
+  default_setting: true

@@ -1,0 +1,49 @@
+defaultNamespace: cattle-neuvector-system
+
+helm:
+  repo: https://charts.rancher.io
+  chart: neuvector
+  releaseName: neuvector
+  version: 106.0.0+up2.8.5
+  valuesFiles:
+    - values.yaml
+diff:
+  comparePatches:
+    - apiVersion: apps/v1
+      kind: Deployment
+      name: neuvector-scanner-pod
+      namespace: cattle-neuvector-system
+      operations:
+        - { "op": "remove", "path": "/spec/replicas" }
+    - apiVersion: cert-manager.io/v1
+      kind: Certificate
+      name: neuvector-internal
+      namespace: cattle-neuvector-system
+      operations:
+        - { "op": "remove", "path": "/spec/duration" }
+    - apiVersion: batch/v1
+      kind: CronJob
+      name: neuvector-cert-upgrader-pod
+      namespace: cattle-neuvector-system
+      operations:
+        - { "op": "remove", "path": "/metadata/annotations/cert-upgrader-uid" }
+
+targetCustomizations:
+  - name: cluster-dell
+    clusterSelector:
+      matchLabels:
+        management.cattle.io/cluster-display-name: cluster-dell
+    helm:
+      valuesFiles:
+        - cluster-dell/values.yaml
+  - name: cluster-gpu
+    clusterSelector:
+      matchLabels:
+        management.cattle.io/cluster-display-name: cluster-gpu
+    helm:
+      valuesFiles:
+        - cluster-gpu/values.yaml
+overrideTargets:
+  - clusterSelector:
+      matchLabels:
+        fleet-app-neuvector: true

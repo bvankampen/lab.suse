@@ -1,0 +1,30 @@
+rbac: true
+bootstrapPassword: neuvector1234
+serviceAccount: neuvector
+global:
+  psp:
+    enabled: false
+  cattle:
+    url: "https://rancher.suse/"
+    systemDefaultRegistry: registry.rancher.com
+  systemDefaultRegistry: registry.rancher.com
+controller:
+  ranchersso:
+    enabled: true
+  pvc:
+    accessModes:
+      - ReadWriteMany
+    enabled: true
+    storageClass: longhorn
+  replicas: 1
+enforcer:
+  tolerations:
+    - effect: NoSchedule
+      key: node-role.kubernetes.io/master
+    - effect: NoSchedule
+      key: node-role.kubernetes.io/control-plane
+    - effect: NoExecute
+      key: node-role.kubernetes.io/etcd
+cve:
+  scanner:
+    replicas: 1

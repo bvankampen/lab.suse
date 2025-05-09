@@ -1,0 +1,11 @@
+defaultNamespace: k3k-system
+
+helm:
+  chart: k3k
+  repo: https://rancher.github.io/k3k
+  releaseName: k3k
+
+overrideTargets:
+  - clusterSelector:
+      matchLabels:
+        fleet-app-k3k: true

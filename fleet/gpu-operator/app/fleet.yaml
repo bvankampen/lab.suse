@@ -1,0 +1,13 @@
+defaultNamespace: gpu-operator-system
+
+helm:
+  repo: https://helm.ngc.nvidia.com/nvidia
+  chart: gpu-operator
+  releaseName: gpu-operator
+  valuesFiles:
+    - values.yaml
+
+overrideTargets:
+  - clusterSelector:
+      matchLabels:
+        fleet-app-gpu-operator: "true"

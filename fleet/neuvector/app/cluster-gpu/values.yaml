@@ -1,0 +1,72 @@
+rbac: true
+bootstrapPassword: neuvector1234
+serviceAccount: neuvector
+global:
+  psp:
+    enabled: false
+  cattle:
+    url: https://rancher.suse
+    systemDefaultRegistry: registry.rancher.com
+  systemDefaultRegistry: registry.rancher.com
+controller:
+  ranchersso:
+    enabled: true
+  apisvc:
+    type: ClusterIP
+  ingress:
+    enabled: true
+    host: api.cluster-gpu.lab.suse
+    ingressClassName: nginx
+    secretName: tls-api-ingress
+    tls: true
+    annotations:
+      cert-manager.io/cluster-issuer: local-issuer
+  # federation:
+  #   mastersvc:
+  #     ingress:
+  #       enabled: true
+  #       host: master.cluster-gpu.lab.suse
+  #       ingressClassName: nginx
+  #       secretName: tls-master-ingress
+  #       tls: true
+  #       annotations:
+  #         cert-manager.io/cluster-issuer: local-issuer
+  #     type: ClusterIP
+  #   managedsvc:
+  #     ingress:
+  #       enabled: true
+  #       host: managed.cluster-gpu.lab.suse
+  #       ingressClassName: nginx
+  #       secretName: tls-managed-ingres
+  #       annotations:
+  #         cert-manager.io/cluster-issuer: local-issuer
+  #       tls: true
+  #     type: ClusterIP
+  pvc:
+    accessModes:
+      - ReadWriteMany
+    enabled: true
+    storageClass: longhorn
+  replicas: 1
+enforcer:
+  tolerations:
+    - effect: NoSchedule
+      key: node-role.kubernetes.io/master
+    - effect: NoSchedule
+      key: node-role.kubernetes.io/control-plane
+    - effect: NoExecute
+      key: node-role.kubernetes.io/etcd
+cve:
+  scanner:
+    replicas: 1
+manager:
+  svc:
+    type: ClusterIP
+  ingress:
+    enabled: true
+    host: neuvector.cluster-gpu.lab.suse
+    ingressClassName: nginx
+    secretName: tls-neuvector-ingress
+    tls: true
+    annotations:
+      cert-manager.io/cluster-issuer: local-issuer

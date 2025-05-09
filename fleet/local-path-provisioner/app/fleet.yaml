@@ -1,0 +1,6 @@
+defaultNamespace: local-path-storage
+
+overrideTargets:
+  - clusterSelector:
+      matchLabels:
+        fleet-app-local-path-provisioner: true

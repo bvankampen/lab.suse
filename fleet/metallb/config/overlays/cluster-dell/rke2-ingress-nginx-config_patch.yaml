@@ -1,0 +1,10 @@
+spec:
+  valuesContent: |-
+    controller:
+      config:
+        proxy-body-size: 128M
+      publishService:
+        enabled: true
+      service:
+        enabled: true
+        loadBalancerIP: 192.168.10.92

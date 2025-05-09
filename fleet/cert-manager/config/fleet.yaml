@@ -1,0 +1,8 @@
+defaultNamespace: cert-manager
+dependsOn:
+  - name: lab-suse-fleet-cert-manager-app
+
+overrideTargets:
+  - clusterSelector:
+      matchLabels:
+        fleet-app-cert-manager: "true"
