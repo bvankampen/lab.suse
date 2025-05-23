@@ -28,6 +28,19 @@ diff:
       namespace: cattle-neuvector-system
       operations:
         - { "op": "remove", "path": "/metadata/annotations/cert-upgrader-uid" }
+    - apiVersion: coordination.k8s.io/v1
+      kind: Lease
+      name: neuvector-cert-upgrader
+      namespace: cattle-neuvector-system
+      operations:
+        - { "op": "remove", "path": "/spec/LeaseTransitions"
+    - apiVersion: coordination.k8s.io/v1
+      kind: Lease
+      name: neuvector-controller
+      namespace: cattle-neuvector-system
+      operations:
+        - { "op": "remove", "path": "/spec/LeaseTransitions" }
+}
 
 targetCustomizations:
   - name: cluster-dell
