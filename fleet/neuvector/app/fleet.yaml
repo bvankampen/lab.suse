@@ -33,7 +33,7 @@ diff:
       name: neuvector-cert-upgrader
       namespace: cattle-neuvector-system
       operations:
-        - { "op": "remove", "path": "/spec/LeaseTransitions"
+        - { "op": "remove", "path": "/spec/LeaseTransitions" }
     - apiVersion: coordination.k8s.io/v1
       kind: Lease
       name: neuvector-controller
