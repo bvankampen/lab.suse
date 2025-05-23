@@ -40,7 +40,6 @@ diff:
       namespace: cattle-neuvector-system
       operations:
         - { "op": "remove", "path": "/spec/LeaseTransitions" }
-}
 
 targetCustomizations:
   - name: cluster-dell
