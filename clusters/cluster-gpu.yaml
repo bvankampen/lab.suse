@@ -19,7 +19,7 @@ metadata:
     fleet-app-local-path-provisioner: "true"
     fleet-app-neuvector: "true"
 spec:
-  kubernetesVersion: v1.31.7+rke2r1
+  kubernetesVersion: v1.32.4+rke2r1
   rkeConfig:
     etcd:
       snapshotRetention: 5
