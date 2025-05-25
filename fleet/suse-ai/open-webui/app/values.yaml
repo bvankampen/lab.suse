@@ -15,7 +15,7 @@ ollama:
     enabled: true
     size: 50Gi
   image:
-    tag: 0.6.2-9.8
+    tag: 0.6.8-10.10
 persistence:
   size: 50Gi
   storageClass: longhorn
