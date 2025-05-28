@@ -1,0 +1,16 @@
+defaultNamespace: cattle-monitoring-system
+dependsOn:
+  - name: lab-suse-fleet-rancher-monitoring-crd
+
+helm:
+  repo: https://charts.rancher.io
+  chart: rancher-monitoring
+  releaseName: rancher-monitoring
+  version: 106.1.1+up69.8.2-rancher.5
+  valuesFiles:
+    - values.yaml
+
+overrideTargets:
+  - clusterSelector:
+      matchLabels:
+        fleet-app-rancher-monitoring: "true"
