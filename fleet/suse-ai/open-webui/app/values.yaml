@@ -16,6 +16,11 @@ ollama:
     size: 50Gi
   image:
     tag: 0.6.2-9.8
+  models:
+    - llama3.2:4b
+    - gemma3:4b
+    - deepseek-r1:8b
+    - qwen2.5-code:7b
 persistence:
   size: 50Gi
   storageClass: longhorn
