@@ -20,7 +20,7 @@ prometheus:
     additionalScrapeConfigs:
       - job_name: "nvitop-exporter"
         static_configs:
-          - targets: ["localhost:5050"]
+          - targets: ["192.168.10.98:5050"]
     retentionSize: 50GiB
     storageSpec:
       volumeClaimTemplate:
