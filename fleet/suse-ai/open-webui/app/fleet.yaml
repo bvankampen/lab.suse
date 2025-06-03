@@ -2,7 +2,7 @@ defaultNamespace: suse-ai
 
 helm:
   chart: oci://harbor.lan.ping6.nl/dp.apps.rancher.io/charts/open-webui
-  releaseName: metallb
+  releaseName: open-webui
   version: 5.16.0
   valuesFiles:
     - values.yaml
