@@ -1,0 +1,14 @@
+defaultNamespace: jhub
+
+helm:
+  repo: https://hub.jupyter.org/helm-chart/
+  chart: jupyterhub
+  releaseName: jupyterhub
+  version: 4.2.0
+  valuesFiles:
+    - values.yaml
+
+overrideTargets:
+  - clusterSelector:
+      matchLabels:
+        fleet-app-jupyterhub: "true"

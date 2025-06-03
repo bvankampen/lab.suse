@@ -1,0 +1,48 @@
+ingress:
+  enabled: true
+  hosts:
+    - jhub.lab.suse
+  ingressClassName: nginx
+  annotations:
+    nginx.ingress.kubernetes.io/proxy-body-size: "10G"
+    cert-manager.io/cluster-issuer: local-issuer
+  tls:
+    - hosts:
+        - jhub.lab.suse
+      secretName: tls-ingress
+proxy:
+  service:
+    type: ClusterIP
+hub:
+  db:
+    pvc:
+      storageClassName: longhorn
+
+singleuser:
+  profileList:
+    - display_name: Pytorch (GPU Node)
+      kubespawner_override:
+        image: quay.io/jupyter/pytorch-notebook:cuda12-pytorch-2.6.0
+        extra_pod_config:
+          runtimeClassName: nvidia
+        node_selector:
+          "nvidia.com/gpu.present": "true"
+        extra_resource_limits:
+          nvidia.com/gpu: 1
+    - display_name: Pytorch (CPU Node)
+      kubespawner_override:
+        image: quay.io/jupyter/pytorch-notebook:pytorch-2.6.0
+        node_selector:
+          "nvidia.com/gpu.present": "false"
+    - display_name: Base Notebook (CPU Node)
+      kubespawner_override:
+        image: quay.io/jupyter/base-notebook:notebook-7.4.3
+        node_selector:
+          "nvidia.com/gpu.present": "false"
+
+  storage:
+    dynamic:
+      storageClass: longhorn
+
+debug:
+  enabled: false
