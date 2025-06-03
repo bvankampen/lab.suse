@@ -18,6 +18,8 @@ metadata:
     fleet-app-k3k: "true"
     fleet-app-local-path-provisioner: "true"
     fleet-app-neuvector: "true"
+    fleet-app-jupyterhub: "true"
+    fleet-app-rancher-monitoring: "true"
 spec:
   kubernetesVersion: v1.32.4+rke2r1
   rkeConfig:
