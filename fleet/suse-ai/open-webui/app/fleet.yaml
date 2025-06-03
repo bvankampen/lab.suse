@@ -4,6 +4,7 @@ helm:
   chart: oci://harbor.lan.ping6.nl/dp.apps.rancher.io/charts/open-webui
   releaseName: open-webui
   version: 5.16.0
+  takeOwnership: true
   valuesFiles:
     - values.yaml
 
