@@ -1,0 +1,43 @@
+global:
+  cattle:
+    systemDefaultRegistry: registry.rancher.com
+    url: https://rancher.suse
+  systemDefaultRegistry: registry.rancher.com
+grafana:
+  grafana.ini:
+    auth.anonymous:
+      enable: true
+      org_role: Admin
+  persistence:
+    accessModes:
+      - ReadWriteMany
+    enabled: true
+    size: 10Gi
+    storageClassName: longhorn
+    type: pvc
+prometheus:
+  prometheusSpec:
+    additionalScrapeConfigs:
+      - job_name: "nvitop-exporter"
+        static_configs:
+          - targets: ["localhost:5050"]
+    retentionSize: 50GiB
+    storageSpec:
+      volumeClaimTemplate:
+        spec:
+          accessModes:
+            - ReadWriteOnce
+          resources:
+            requests:
+              storage: 50Gi
+          storageClassName: longhorn
+rke2ControllerManager:
+  enabled: true
+rke2Etcd:
+  enabled: true
+rke2IngressNginx:
+  enabled: true
+rke2Proxy:
+  enabled: true
+rke2Scheduler:
+  enabled: true
