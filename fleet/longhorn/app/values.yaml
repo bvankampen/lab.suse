@@ -1,5 +1,6 @@
 defaultSettings:
   v1DataEngine: true
+  storageOverProvisioningPercentage: 200
 global:
   cattle:
     systemDefaultRegistry: registry.rancher.com
