@@ -20,6 +20,7 @@ metadata:
     fleet-app-neuvector: "true"
     fleet-app-jupyterhub: "true"
     fleet-app-rancher-monitoring: "true"
+    fleet-app-rancher-logging: "true"
     fleet-app-grafana-loki: "true"
 spec:
   kubernetesVersion: v1.32.4+rke2r1
