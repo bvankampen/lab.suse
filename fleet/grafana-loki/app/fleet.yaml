@@ -1,0 +1,13 @@
+defaultNamespace: grafana-loki
+
+helm:
+  repo: https://grafana.github.io/helm-charts
+  chart: loki
+  releaseName: loki
+  valuesFiles:
+    - values.yaml
+
+overrideTargets:
+  - clusterSelector:
+      matchLabels:
+        fleet-app-grafana-loki: "true"
