@@ -15,7 +15,7 @@ controller:
     type: ClusterIP
   ingress:
     enabled: true
-    host: api.cluster-dell.lab.suse
+    host: api.cluster-2.lab.suse
     ingressClassName: nginx
     secretName: tls-api-ingress
     tls: true
@@ -25,7 +25,7 @@ controller:
   #   mastersvc:
   #     ingress:
   #       enabled: true
-  #       host: master.cluster-dell.lab.suse
+  #       host: master.cluster-2.lab.suse
   #       ingressClassName: nginx
   #       secretName: tls-master-ingress
   #       tls: true
@@ -35,7 +35,7 @@ controller:
   #   managedsvc:
   #     ingress:
   #       enabled: true
-  #       host: managed.cluster-dell.lab.suse
+  #       host: managed.cluster-2.lab.suse
   #       ingressClassName: nginx
   #       secretName: tls-managed-ingres
   #       annotations:
@@ -44,9 +44,9 @@ controller:
   #     type: ClusterIP
   pvc:
     accessModes:
-      - ReadWriteMany
+      - ReadWriteOnce
     enabled: true
-    storageClass: longhorn
+    storageClass: harvester
   replicas: 1
 enforcer:
   tolerations:
@@ -64,7 +64,7 @@ manager:
     type: ClusterIP
   ingress:
     enabled: true
-    host: neuvector.cluster-dell.lab.suse
+    host: neuvector.cluster-2.lab.suse
     ingressClassName: nginx
     secretName: tls-neuvector-ingress
     tls: true
