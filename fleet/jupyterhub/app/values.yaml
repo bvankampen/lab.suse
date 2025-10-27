@@ -16,7 +16,7 @@ proxy:
 hub:
   db:
     pvc:
-      storageClassName: longhorn
+      storageClassName: ""
 
 singleuser:
   profileList:
@@ -42,7 +42,7 @@ singleuser:
 
   storage:
     dynamic:
-      storageClass: longhorn
+      storageClass: ""
 
 debug:
   enabled: false

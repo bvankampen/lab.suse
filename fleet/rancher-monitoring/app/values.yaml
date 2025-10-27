@@ -13,7 +13,6 @@ grafana:
       - ReadWriteMany
     enabled: true
     size: 10Gi
-    storageClassName: longhorn
     type: pvc
 prometheus:
   prometheusSpec:
@@ -30,7 +29,6 @@ prometheus:
           resources:
             requests:
               storage: 50Gi
-          storageClassName: longhorn
 rke2ControllerManager:
   enabled: true
 rke2Etcd:

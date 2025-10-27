@@ -46,7 +46,6 @@ controller:
     accessModes:
       - ReadWriteOnce
     enabled: true
-    storageClass: harvester
   replicas: 1
 enforcer:
   tolerations:

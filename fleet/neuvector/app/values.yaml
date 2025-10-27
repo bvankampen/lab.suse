@@ -15,7 +15,6 @@ controller:
     accessModes:
       - ReadWriteMany
     enabled: true
-    storageClass: longhorn
   replicas: 1
 enforcer:
   tolerations:

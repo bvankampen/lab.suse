@@ -23,4 +23,3 @@ ollama:
   # - qwen2.5-coder:7b
 persistence:
   size: 50Gi
-  storageClass: longhorn
