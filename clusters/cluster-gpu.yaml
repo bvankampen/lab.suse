@@ -13,15 +13,15 @@ metadata:
     fleet-app-gpu-operator: "true"
     fleet-app-metallb: "true"
     fleet-app-external-dns: "true"
-    fleet-app-longhorn: "true"
+    fleet-app-longhorn: "false"
     fleet-app-suse-ai: "true"
-    fleet-app-k3k: "true"
-    fleet-app-local-path-provisioner: "true"
-    fleet-app-neuvector: "true"
-    fleet-app-jupyterhub: "true"
-    fleet-app-rancher-monitoring: "true"
-    fleet-app-rancher-logging: "true"
-    fleet-app-grafana-loki: "true"
+    fleet-app-k3k: "false"
+    fleet-app-local-path-provisioner: "false"
+    fleet-app-neuvector: "false"
+    fleet-app-jupyterhub: "false"
+    fleet-app-rancher-monitoring: "false"
+    fleet-app-rancher-logging: "false"
+    fleet-app-grafana-loki: "false"
 spec:
   kubernetesVersion: v1.32.4+rke2r1
   rkeConfig:

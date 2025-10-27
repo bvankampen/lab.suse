@@ -4,7 +4,7 @@ helm:
   repo: https://charts.rancher.io
   chart: rancher-monitoring-crd
   releaseName: rancher-monitoring-crd
-  version: 106.1.1+up69.8.2-rancher.5
+  version: 107.2.1+up69.8.2-rancher.23
 
 overrideTargets:
   - clusterSelector:
