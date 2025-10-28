@@ -69,7 +69,7 @@ milvus:
       requests:
         memory: 1024Mi
   kafka:
-    enabled: true
+    enabled: false
     persistence:
       enabled: true
 pytorch:
