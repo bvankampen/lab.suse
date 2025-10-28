@@ -54,6 +54,8 @@ open-webui:
       value: "true"
 milvus:
   enabled: true
+  cluster:
+    enabled: false
   standalone:
     persistence:
       persistentVolumeClaim:
@@ -63,6 +65,9 @@ milvus:
     persistence:
       enabled: true
   minio:
+    mode: standalone
+    rootUser: "admin"
+    rootPassword: "adminminio"
     persistence:
       size: 20Gi
     resources:
