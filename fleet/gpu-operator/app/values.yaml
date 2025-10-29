@@ -20,15 +20,16 @@ toolkit:
     - name: CONTAINERD_SOCKET
       value: /run/k3s/containerd/containerd.sock
 dcgmExporter:
-  serviceMonitor:
-    enabled: true
-    # interval: 15s
-    # honorLabels: false
-    # additionalLabels: {}
-    # relabelings:
-    #   - source_labels:
-    #       - __meta_kubernetes_pod_node_name
-    #     regex: (.*)
-    #     target_label: instance
-    #     replacement: $1
-    #     action: replace
+  enabled: true
+  # serviceMonitor:
+  #   enabled: true
+  #   interval: 15s
+  #   honorLabels: false
+  #   additionalLabels: {}
+  #   relabelings:
+  #     - source_labels:
+  #         - __meta_kubernetes_pod_node_name
+  #       regex: (.*)
+  #       target_label: instance
+  #       replacement: $1
+  #       action: replace
