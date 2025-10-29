@@ -1,0 +1,16 @@
+pipelines:
+  enabled: true
+  persistence:
+    enabled: true
+  extraEnvVars:
+    - name: PIPELINES_URLS
+      value: "https://raw.githubusercontent.com/SUSE/suse-ai-observability-extension/refs/heads/main/integrations/oi-filter/suse_ai_filter.py"
+    - name: OTEL_SERVICE_NAME
+      value: "Open WebUI"
+    - name: OTEL_EXPORTER_HTTP_OTLP_ENDPNT
+      value: "http://opentelemetry-collector.suse-observability.svc.cluster.local:4318"
+    - name: PRICING_JSON
+      value: "https://raw.githubusercontent.com/SUSE/suse-ai-observability-extension/refs/heads/main/integrations/oi-filter/pricing.json"
+extraEnvVars:
+  - name: OPENAI_API_KEY
+    value: "0p3n-w3bu!"

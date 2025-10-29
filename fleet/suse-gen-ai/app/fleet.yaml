@@ -8,7 +8,15 @@ helm:
   valuesFiles:
     - values.yaml
 
+targetCustomizations:
+  - clusterSelector:
+      matchLabels:
+        fleet-app-suse-gen-ai-owui-otel: "true"
+    helm:
+      valuesFiles:
+        - values-owui-otel.yaml
+
 overrideTargets:
   - clusterSelector:
       matchLabels:
-        fleet-app-suse-gen-ai: true
+        fleet-app-suse-gen-ai: "true"
