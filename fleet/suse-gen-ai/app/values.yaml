@@ -9,9 +9,13 @@ ollama:
   ollama:
     models:
       pull:
+        - "llama3.2:3b"
+        - "gemma3:4b"
         - "gemma:2b"
+        - "deepseek-r1:8b"
+        - "qwen2.5-coder:7b"
       run:
-        - "gemma:2b"
+        - "deepseek-r1:8b"
     gpu:
       enabled: true
       type: "nvidia"
