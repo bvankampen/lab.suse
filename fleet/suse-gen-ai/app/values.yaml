@@ -61,6 +61,8 @@ open-webui:
       value: http://suse-gen-ai-milvus.suse-gen-ai.svc.cluster.local:19530
     - name: INSTALL_NLTK_DATASETS
       value: "true"
+    - name: ENV
+      value: "dev"
 milvus:
   enabled: true
   cluster:
