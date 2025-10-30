@@ -14,8 +14,7 @@ targetCustomizations:
         fleet-app-suse-gen-ai-owui-otel: "true"
     helm:
       valuesFiles:
-        - values.yaml
-        - values-owui-otel.yaml
+        - values-with-otel.yaml
 
 overrideTargets:
   - clusterSelector:
