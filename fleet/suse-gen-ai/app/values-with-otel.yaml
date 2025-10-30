@@ -40,7 +40,8 @@ open-webui:
       enabled: true
     extraEnvVars:
       - name: PIPELINES_URLS
-        value: "https://raw.githubusercontent.com/SUSE/suse-ai-observability-extension/refs/heads/main/integrations/oi-filter/suse_ai_filter.py"
+        #value: "https://raw.githubusercontent.com/SUSE/suse-ai-observability-extension/refs/heads/main/integrations/oi-filter/suse_ai_filter.py"
+        value: "http://files.lan.ping6.nl/ai/suse_ai_filter.py"
       - name: OTEL_SERVICE_NAME
         value: "Open WebUI"
       - name: OTEL_EXPORTER_HTTP_OTLP_ENDPOINT
@@ -54,7 +55,7 @@ open-webui:
     host: chat.lab.suse
   extraEnvVars:
     - name: DEFAULT_MODELS
-      value: "gemma:2b"
+      value: "gemma3:4b"
     - name: DEFAULT_USER_ROLE
       value: "user"
     - name: WEBUI_NAME
