@@ -1,0 +1,19 @@
+targetCustomizations:
+  - name: cluster-dell
+    clusterSelector:
+      matchLabels:
+        management.cattle.io/cluster-display-name: cluster-dell
+    yaml:
+      overlays:
+        - cluster-dell
+  - name: cluster-gpu
+    clusterSelector:
+      matchLabels:
+        management.cattle.io/cluster-display-name: cluster-gpu
+    yaml:
+      overlays:
+        - cluster-gpu
+overrideTargets:
+  - clusterSelector:
+      matchLabels:
+        fleet-app-harvester-loadbalancer-ingress: true

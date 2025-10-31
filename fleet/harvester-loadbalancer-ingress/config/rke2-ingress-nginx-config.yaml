@@ -1,0 +1,16 @@
+apiVersion: helm.cattle.io/v1
+kind: HelmChartConfig
+metadata:
+  name: rke2-ingress-nginx
+  namespace: kube-system
+spec:
+  valuesContent: |-
+    controller:
+      config:
+        proxy-body-size: 128M
+      publishService:
+        enabled: true
+      service:
+        enabled: true
+        annotations:
+          - cloudprovider.harvesterhci.io/ipam: Pool
