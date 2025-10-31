@@ -9,4 +9,4 @@ spec:
         enabled: true
         loadBalancerIP: 192.168.96.60
         annotations:
-          cloudprovider.harvesterhci.io/ipam: Pool
+          cloudprovider.harvesterhci.io/ipam: pool
