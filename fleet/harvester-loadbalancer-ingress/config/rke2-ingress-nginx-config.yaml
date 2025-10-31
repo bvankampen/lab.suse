@@ -13,4 +13,4 @@ spec:
       service:
         enabled: true
         annotations:
-          - cloudprovider.harvesterhci.io/ipam: Pool
+          cloudprovider.harvesterhci.io/ipam: Pool
