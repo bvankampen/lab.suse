@@ -1,8 +1,0 @@
-apiVersion: loadbalancer.harvesterhci.io/v1beta1
-kind: IPPool
-metadata:
-  labels:
-    loadbalancer.harvesterhci.io/global-ip-pool: "false"
-    loadbalancer.harvesterhci.io/vid: "0"
-  name: default
-spec: {}

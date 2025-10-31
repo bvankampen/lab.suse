@@ -1,6 +1,0 @@
-spec:
-  ranges:
-    - gateway: 192.168.96.1
-      rangeEnd: 192.168.96.61
-      rangeStart: 192.168.96.60
-      subnet: 192.168.96.0/24
