@@ -1,0 +1,13 @@
+targetCustomizations:
+  - name: homelab
+    clusterSelector:
+      matchLabels:
+        management.cattle.io/cluster-display-name: homelab
+    yaml:
+      overlays:
+        - homelab
+
+overrideTargets:
+  - clusterSelector:
+      matchLabels:
+        fleet-app-local-path-provisioner-config: true
