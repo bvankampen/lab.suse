@@ -15,7 +15,7 @@ controller:
     type: ClusterIP
   ingress:
     enabled: true
-    host: api.cluster-gpu.lab.suse
+    host: neuvector-api.homelab.lab.suse
     ingressClassName: nginx
     secretName: tls-api-ingress
     tls: true
@@ -44,7 +44,7 @@ controller:
   #     type: ClusterIP
   pvc:
     accessModes:
-      - ReadWriteMany
+      - ReadWriteOnce
     enabled: true
   replicas: 1
 enforcer:
@@ -57,13 +57,13 @@ enforcer:
       key: node-role.kubernetes.io/etcd
 cve:
   scanner:
-    replicas: 1
+    replicas: 2
 manager:
   svc:
     type: ClusterIP
   ingress:
     enabled: true
-    host: neuvector.cluster-gpu.lab.suse
+    host: neuvector.homelab.lab.suse
     ingressClassName: nginx
     secretName: tls-neuvector-ingress
     tls: true

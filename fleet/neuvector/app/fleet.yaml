@@ -4,7 +4,7 @@ helm:
   repo: https://charts.rancher.io
   chart: neuvector
   releaseName: neuvector
-  version: 106.0.2+up2.8.7
+  version: 107.0.2+up2.8.9
   valuesFiles:
     - values.yaml
   takeOwnership: true
@@ -42,20 +42,13 @@ diff:
         - { "op": "remove", "path": "/spec/leaseTransitions" }
 
 targetCustomizations:
-  - name: cluster-2
+  - name: homelab
     clusterSelector:
       matchLabels:
-        management.cattle.io/cluster-display-name: cluster-2
+        management.cattle.io/cluster-display-name: homelab
     helm:
       valuesFiles:
-        - cluster-2/values.yaml
-  - name: cluster-gpu
-    clusterSelector:
-      matchLabels:
-        management.cattle.io/cluster-display-name: cluster-gpu
-    helm:
-      valuesFiles:
-        - cluster-gpu/values.yaml
+        - homelab/values.yaml
 overrideTargets:
   - clusterSelector:
       matchLabels:
