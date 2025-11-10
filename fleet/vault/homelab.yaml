@@ -1,5 +1,5 @@
 server:
-  replicas: 1
+  affinity: ""
   standalone:
     enabled: false
     config: |
