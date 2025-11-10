@@ -9,3 +9,7 @@ server:
     ingressClassName: nginx
     annotations:
       cert-manager.io/cluster-issuer: local-issuer
+    tls:
+      - hosts:
+          - vault.lan.ping6.nl
+        secretName: vault-tls
