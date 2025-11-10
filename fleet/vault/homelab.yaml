@@ -10,13 +10,11 @@ server:
         address = "[::]:8200"
         cluster_address = "[::]:8201"
       }
-      # storage "file" {
-      #   path = "/vault/data"
-      # }
-
+      disable_mlock = true
   ha:
     raft:
       enabled: true
+      setNodeID: true
     enabled: true
   ingress:
     enabled: true
