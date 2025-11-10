@@ -1,6 +1,7 @@
 server:
   replicas: 1
-  standalone: false
+  standalone:
+    enabled: false
   raft:
     enabled: true
   ingress:
