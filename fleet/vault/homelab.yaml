@@ -15,6 +15,7 @@ server:
       }
   raft:
     enabled: true
+    setNodeID: true
   ingress:
     enabled: true
     hosts:
