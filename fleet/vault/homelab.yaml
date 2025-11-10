@@ -13,9 +13,11 @@ server:
       storage "file" {
         path = "/vault/data"
       }
-  raft:
-    enabled: true
-    setNodeID: true
+      disable_mlock = true
+  ha:
+    raft:
+      enabled: true
+      setNodeID: true
   ingress:
     enabled: true
     hosts:
