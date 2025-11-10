@@ -11,9 +11,6 @@ targetCustomizations:
     clusterSelector:
       matchLabels:
         management.cattle.io/cluster-display-name: homelab
-    yaml:
-      overlays:
-        - homelab
     helm:
       valuesFiles:
         - homelab.yaml
