@@ -1,3 +1,5 @@
+defaultNamespace: vault
+
 helm:
   repo: https://helm.releases.hashicorp.com
   chart: vault
