@@ -3,7 +3,7 @@ defaultNamespace: cert-manager
 helm:
   chart: oci://harbor.lan.ping6.nl/dp.apps.rancher.io/charts/cert-manager
   releaseName: cert-manager
-  version: 1.17.2
+  version: 1.19.1
   valuesFiles:
     - values.yaml
 
