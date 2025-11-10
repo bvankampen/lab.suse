@@ -12,4 +12,4 @@ targetCustomizations:
 overrideTargets:
   - clusterSelector:
       matchLabels:
-        fleet-app-local-path-provisioner-config: true
+        fleet-app-local-path-provisioner: true
