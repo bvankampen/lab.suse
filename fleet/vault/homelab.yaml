@@ -3,6 +3,7 @@ server:
   raft:
     enabled: true
   ingress:
+    enabled: true
     hosts:
       - host: vault.lan.ping6.nl
     ingressClassName: nginx
