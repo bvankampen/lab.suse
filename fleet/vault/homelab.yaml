@@ -13,7 +13,7 @@ server:
       storage "file" {
         path = "/vault/data"
       }
-      disable_mlock = true
+
   ha:
     raft:
       enabled: true
