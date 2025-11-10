@@ -9,6 +9,7 @@ extraArgs:
   - --rfc2136-host=ns1.lan.ping6.nl
   - --rfc2136-port=53
   - --rfc2136-zone=lab.suse
+  - --rfc2136-zone=lan.ping6.nl
   - --rfc2136-tsig-secret-alg=hmac-sha256
   - --rfc2136-tsig-axfr
 env:
