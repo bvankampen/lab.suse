@@ -1,0 +1,10 @@
+server:
+  replicas: 1
+  raft:
+    enabled: true
+  ingress:
+    hosts:
+      - host: vault.lan.ping6.nl
+    ingressClassName: nginx
+    annotations:
+      cert-manager.io/cluster-issuer: local-issuer
