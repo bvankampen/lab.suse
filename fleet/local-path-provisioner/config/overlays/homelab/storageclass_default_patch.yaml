@@ -11,14 +11,3 @@ volumeBindingMode: WaitForFirstConsumer
 parameters:
   nodePath: /data/nvme
   pathPattern: "{{ .PVC.Namespace }}/{{ .PVC.Name }}"
----
-apiVersion: storage.k8s.io/v1
-kind: StorageClass
-metadata:
-  name: local-path-ssd
-parameters:
-  nodePath: /data/ssd
-  pathPattern: "{{ .PVC.Namespace }}/{{ .PVC.Name }}"
-provisioner: rancher.io/local-path
-reclaimPolicy: Delete
-volumeBindingMode: WaitForFirstConsumer
