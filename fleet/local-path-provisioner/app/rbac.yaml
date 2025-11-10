@@ -3,7 +3,6 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
 metadata:
   name: local-path-provisioner-role
-  namespace: local-path-storage
 rules:
   - apiGroups: [""]
     resources: ["pods"]
@@ -34,7 +33,6 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
   name: local-path-provisioner-bind
-  namespace: local-path-storage
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: Role
@@ -42,8 +40,7 @@ roleRef:
 subjects:
   - kind: ServiceAccount
     name: local-path-provisioner-service-account
-    namespace: local-path-storage
-
+    namespace: kube-system
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
@@ -56,4 +53,4 @@ roleRef:
 subjects:
   - kind: ServiceAccount
     name: local-path-provisioner-service-account
-    namespace: local-path-storage
+    namespace: kube-system

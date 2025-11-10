@@ -1,4 +1,4 @@
-defaultNamespace: local-path-storage
+defaultNamespace: kube-system
 
 overrideTargets:
   - clusterSelector:
