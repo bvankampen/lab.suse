@@ -2,6 +2,17 @@ server:
   replicas: 1
   standalone:
     enabled: false
+    config: |
+      ui = true
+
+      listener "tcp" {
+        tls_disable = 1
+        address = "[::]:8200"
+        cluster_address = "[::]:8201"
+      }
+      storage "file" {
+        path = "/vault/data"
+      }
   raft:
     enabled: true
   ingress:
