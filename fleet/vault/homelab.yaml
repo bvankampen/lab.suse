@@ -16,6 +16,8 @@ server:
       enabled: true
       setNodeID: true
     enabled: true
+  service:
+    publishNotReadyAddresses: false
   ingress:
     enabled: true
     hosts:
