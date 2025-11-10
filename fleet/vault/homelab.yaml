@@ -1,5 +1,5 @@
 server:
-  affinity: ""
+  affinity: null
   standalone:
     enabled: false
     config: |
