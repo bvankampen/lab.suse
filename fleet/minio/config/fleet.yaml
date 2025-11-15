@@ -1,0 +1,6 @@
+defaultNamespace: minio
+
+overrideTargets:
+  - clusterSelector:
+      matchLabels:
+        fleet-app-minio: "true"

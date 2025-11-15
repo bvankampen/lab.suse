@@ -1,0 +1,14 @@
+defaultNamespace: minio
+
+helm:
+  repo: oci://harbor.lan.ping6.nl/dp.apps.rancher.io/charts/minio
+  chart: minio
+  releaseName: minio
+  version: 5.4.0
+  valuesFiles:
+    - values.yaml
+
+overrideTargets:
+  - clusterSelector:
+      matchLabels:
+        fleet-app-minio: "true"
