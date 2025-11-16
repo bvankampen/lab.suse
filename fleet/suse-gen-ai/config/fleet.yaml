@@ -1,0 +1,6 @@
+defaultNamespace: suse-gen-ai
+
+overrideTargets:
+  - clusterSelector:
+      matchLabels:
+        fleet-app-suse-gen-ai: "true"
