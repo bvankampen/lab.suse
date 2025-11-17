@@ -10,9 +10,10 @@ This repository is in continues developement and running in a private homelab, s
 
 ## Software used:
 - OpenSUSE Leap
+- SUSE Linux Enterprise Server
+- SUSE Multi Linux Manager
 - Proxmox
-- Terragrunt
-- Opentofu
+- Harvester
 - Ansible
 - Rancher Fleet
 - Rancher Prime

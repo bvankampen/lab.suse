@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<image schemaversion="7.4" name="sles15-sp7" displayname="SLES 15 SP7">
+
+    <description type="system">
+        <author>Bas van Kampen</author>
+        <contact>b.vankampen@suse.com</contact>
+        <specification>SUSE Linux Enterprise 15 SP7</specification>
+    </description>
+
+    <profiles>
+        <profile name="osimage" description="OS Image" arch="aarch64,x86_64"/>
+    </profiles>
+
+    <preferences>
+        <version>15.7.0</version>
+        <packagemanager>zypper</packagemanager>
+        <bootsplash-theme>SLE</bootsplash-theme>
+        <bootloader-theme>SLE</bootloader-theme>
+        <rpm-excludedocs>true</rpm-excludedocs>
+        <type image="oem" filesystem="xfs" format="qcow2" vga="normal" firmware="uefi" efipartsize="512" kernelcmdline="rw systemd.show_status=1 console=ttyS0,115200 console=tty0 net.ifnames=0 quiet" bootpartition="false" bootkernel="custom" devicepersistency="by-uuid" bundle_format="%N-%P.%A">
+            <bootloader name="grub2" timeout="1"/>
+        </type>
+    </preferences>
+
+    <repository type="rpm-md">
+        <source path="obsrepositories:/"/>
+    </repository>
+
+    <packages type="image">
+        <package name="patterns-base-base"/>
+        <package name="patterns-base-apparmor"/>
+        <package name="audit"/>
+        <package name="aaa_base-extras"/>
+        <package name="acl"/>
+        <package name="chrony"/>
+        <package name="curl"/>
+        <package name="dracut"/>
+        <package name="fipscheck"/>
+        <package name="group(mail)"/>
+        <package name="group(wheel)"/>
+        <package name="grub2-branding-SLE" bootinclude="true"/>
+        <package name="iputils"/>
+        <package name="issue-generator"/>
+        <package name="zypper-lifecycle-plugin"/>
+        <package name="vim-small"/>
+        <package name="grub2"/>
+        <package name="grub2-x86_64-efi" arch="x86_64"/>
+        <package name="haveged"/>
+        <package name="less"/>
+        <package name="tar"/>
+        <package name="parted"/>
+        <package name="SUSEConnect"/>
+        <package name="suse-build-key"/>
+        <package name="systemd"/>
+        <package name="timezone"/>
+        <package name="wicked"/>
+        <package name="iproute2"/>
+        <package name="openssh"/>
+        <package name="rsync"/>
+        <package name="salt-minion"/>
+        <package name="dosfstools"/>
+        <package name="lsof"/>
+        <package name="jeos-licenses"/>
+        <package name="rsyslog"/>
+        <package name="zypper-needs-restarting"/>
+        <package name="dracut-kiwi-oem-repart"/>
+        <package name="shim" arch="x86_64"/>
+        <package name="qemu-guest-agent"/>
+        <package name="cloud-init"/>
+        <package name="cloud-init-config-suse"/>
+        <package name="jeos-firstboot"/>
+        <package name="fbiterm"/>
+        <package name="xfsprogs"/>
+        <package name="bash-completion"/>
+        <package name="kernel-default"/>
+    </packages>
+
+    <packages type="bootstrap">
+        <package name="filesystem"/>
+        <package name="glibc-locale-base"/>
+        <package name="ca-certificates-mozilla"/>
+        <package name="sles-release"/>
+    </packages>
+
+    <!-- Extra Added Packages -->
+    <packages type="image">
+        <package name="pciutils"/>
+        <package name="open-iscsi"/>
+        <package name="nfs-client"/>
+        <package name="iptables"/>
+        <package name="python313"/>
+    </packages>
+
+</image>
