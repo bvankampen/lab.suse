@@ -49,6 +49,10 @@ targetCustomizations:
     helm:
       valuesFiles:
         - homelab/values.yaml
+  - name: homelab
+    clusterSelector:
+      matchLabels:
+        management.cattle.io/cluster-display-name: homelab
     yaml:
       overlays:
         - homelab
