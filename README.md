@@ -22,3 +22,4 @@ This repository is in continues developement and running in a private homelab, s
 - RKE2
 - K3s
 - Harbor
+- Hashicorp Vault

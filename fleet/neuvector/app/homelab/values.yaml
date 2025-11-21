@@ -16,7 +16,7 @@ controller:
   ingress:
     enabled: true
     host: neuvector-api.homelab.lab.suse
-    ingressClassName: nginx
+    ingressClassName: traefik
     secretName: tls-api-ingress
     tls: true
     annotations:
@@ -26,7 +26,7 @@ controller:
   #     ingress:
   #       enabled: true
   #       host: master.cluster-gpu.lab.suse
-  #       ingressClassName: nginx
+  #       ingressClassName: traefik
   #       secretName: tls-master-ingress
   #       tls: true
   #       annotations:
@@ -36,7 +36,7 @@ controller:
   #     ingress:
   #       enabled: true
   #       host: managed.cluster-gpu.lab.suse
-  #       ingressClassName: nginx
+  #       ingressClassName: traefik
   #       secretName: tls-managed-ingres
   #       annotations:
   #         cert-manager.io/cluster-issuer: local-issuer
@@ -64,7 +64,7 @@ manager:
   ingress:
     enabled: true
     host: neuvector.homelab.lab.suse
-    ingressClassName: nginx
+    ingressClassName: traefik
     secretName: tls-neuvector-ingress
     tls: true
     annotations:

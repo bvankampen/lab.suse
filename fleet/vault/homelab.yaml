@@ -22,7 +22,7 @@ server:
     enabled: true
     hosts:
       - host: vault.lan.ping6.nl
-    ingressClassName: nginx
+    ingressClassName: traefik
     annotations:
       cert-manager.io/cluster-issuer: local-issuer
     tls:
