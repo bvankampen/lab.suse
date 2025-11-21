@@ -13,8 +13,6 @@ controller:
     enabled: true
   apisvc:
     type: ClusterIP
-    annotations:
-      traefik.ingress.kubernetes.io/service.serversscheme: https
   ingress:
     enabled: true
     host: neuvector-api.homelab.lab.suse
@@ -63,8 +61,6 @@ cve:
 manager:
   svc:
     type: ClusterIP
-    annotations:
-      traefik.ingress.kubernetes.io/service.serversscheme: https
   ingress:
     enabled: true
     host: neuvector.homelab.lab.suse
