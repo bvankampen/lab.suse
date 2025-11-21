@@ -15,7 +15,7 @@ controller:
     type: ClusterIP
     annotations:
       traefik.ingress.kubernetes.io/service.serversscheme: https
-      traefik.ingress.kubernetes.io/service.serverstransport: insecure-backend@kubernetescrd
+      traefik.ingress.kubernetes.io/service.serverstransport: cattle-neuvector-system-insecure-backend@kubernetescrd
   ingress:
     enabled: true
     host: neuvector-api.homelab.lab.suse
@@ -67,7 +67,7 @@ manager:
     type: ClusterIP
     annotations:
       traefik.ingress.kubernetes.io/service.serversscheme: https
-      traefik.ingress.kubernetes.io/service.serverstransport: insecure-backend@kubernetescrd
+      traefik.ingress.kubernetes.io/service.serverstransport: cattle-neuvector-system-insecure-backend@kubernetescrd
   ingress:
     enabled: true
     host: neuvector.homelab.lab.suse
