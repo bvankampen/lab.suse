@@ -1,0 +1,15 @@
+defaultNamespace: cattle-neuvector-system
+
+targetCustomizations:
+  - name: homelab
+    clusterSelector:
+      matchLabels:
+        management.cattle.io/cluster-display-name: homelab
+    yaml:
+      overlays:
+        - homelab
+
+overrideTargets:
+  - clusterSelector:
+      matchLabels:
+        fleet-app-neuvector: true
