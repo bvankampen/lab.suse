@@ -2,7 +2,7 @@ ingress:
   enabled: true
   hosts:
     - jhub.lab.suse
-  ingressClassName: nginx
+  ingressClassName: traefik
   annotations:
     nginx.ingress.kubernetes.io/proxy-body-size: "10G"
     cert-manager.io/cluster-issuer: local-issuer

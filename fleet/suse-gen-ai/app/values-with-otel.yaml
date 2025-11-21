@@ -51,7 +51,7 @@ open-webui:
   ingress:
     annotations:
       cert-manager.io/cluster-issuer: local-issuer
-    class: nginx
+    class: traefik
     host: chat.lab.suse
   extraEnvVars:
     - name: DEFAULT_MODELS
