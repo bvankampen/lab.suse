@@ -49,6 +49,9 @@ targetCustomizations:
     helm:
       valuesFiles:
         - homelab/values.yaml
+    yaml:
+      overlays:
+        - homelab
 overrideTargets:
   - clusterSelector:
       matchLabels:
