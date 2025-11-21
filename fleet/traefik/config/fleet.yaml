@@ -1,0 +1,6 @@
+defaultNamespace: kube-system
+
+overrideTargets:
+  - clusterSelector:
+      matchLabels:
+        fleet-app-traefik: true
