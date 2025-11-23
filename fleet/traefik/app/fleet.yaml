@@ -1,0 +1,16 @@
+defaultNamespace: traefik
+dependsOn:
+  - name: lab-suse-fleet-traefik-crd
+
+helm:
+  chart: traefik
+  repo: https://traefik.github.io/charts
+  releaseName: traefik
+  version: 37.4.0
+  valuesFiles:
+    - values.yaml
+
+overrideTargets:
+  - clusterSelector:
+      matchLabels:
+        fleet-app-traefik: "true"
