@@ -6,7 +6,6 @@ helm:
   chart: traefik
   repo: https://traefik.github.io/charts
   releaseName: traefik
-  version: 37.4.0
   valuesFiles:
     - values.yaml
 
