@@ -1,6 +1,4 @@
 defaultNamespace: traefik
-dependsOn:
-  - name: lab-suse-fleet-traefik-crd
 
 helm:
   chart: traefik
