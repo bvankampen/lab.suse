@@ -7,6 +7,7 @@ domainFilters:
   - lab.suse
   - lan.ping6.nl
   - demo.suse
+policy: sync
 extraArgs:
   - --rfc2136-host=ns1.lan.ping6.nl
   - --rfc2136-port=53
@@ -15,7 +16,6 @@ extraArgs:
   - --rfc2136-zone=demo.suse
   - --rfc2136-tsig-secret-alg=hmac-sha256
   - --rfc2136-tsig-axfr
-  - --policy=sync
 env:
   - name: "EXTERNAL_DNS_RFC2136_TSIG_SECRET"
     valueFrom:
