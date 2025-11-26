@@ -7,7 +7,6 @@ domainFilters:
   - lab.suse
   - lan.ping6.nl
   - demo.suse
-policy: sync
 extraArgs:
   - --rfc2136-host=ns1.lan.ping6.nl
   - --rfc2136-port=53
