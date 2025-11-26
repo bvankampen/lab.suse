@@ -15,6 +15,7 @@ extraArgs:
   - --rfc2136-zone=demo.suse
   - --rfc2136-tsig-secret-alg=hmac-sha256
   - --rfc2136-tsig-axfr
+  - --policy=sync
 env:
   - name: "EXTERNAL_DNS_RFC2136_TSIG_SECRET"
     valueFrom:
