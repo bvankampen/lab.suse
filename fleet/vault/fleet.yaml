@@ -1,7 +1,7 @@
 defaultNamespace: vault
 
 helm:
-  chart: oci://dp.apps.rancher.io/charts/vault
+  chart: oci://harbor.lan.ping6.nl/dp.apps.rancher.io/charts/vault
   releaseName: vault
   version: 0.31.0
 
