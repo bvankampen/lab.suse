@@ -1,8 +1,7 @@
 defaultNamespace: vault
 
 helm:
-  repo: https://helm.releases.hashicorp.com
-  chart: vault
+  chart: oci://dp.apps.rancher.io/charts/vault
   releaseName: vault
   version: 0.31.0
 
