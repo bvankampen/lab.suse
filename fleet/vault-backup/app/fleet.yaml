@@ -1,0 +1,6 @@
+defaultNamespace: vault-backup
+
+overrideTargets:
+  - clusterSelector:
+      matchLabels:
+        fleet-app-vault-backup: "true"

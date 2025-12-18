@@ -1,0 +1,32 @@
+apiVersion: external-secrets.io/v1
+kind: ExternalSecret
+metadata:
+  name: vault-backup-config
+spec:
+  refreshInterval: "1h"
+  secretStoreRef:
+    name: vault-backend
+    kind: ClusterSecretStore
+  target:
+    name: vault-backup-config
+  data:
+    - secretKey: VAULT_ADDR
+      remoteRef:
+        key: secretstore.lab.suse
+        property: vault-backup-address
+    - secretKey: VAULT_TOKEN
+      remoteRef:
+        key: secretstore.lab.suse
+        property: vault-backup-token
+    - secretKey: SSH_HOST
+      remoteRef:
+        key: secretstore.lab.suse
+        property: vault-backup-ssh-host
+    - secretKey: SSH_USER
+      remoteRef:
+        key: secretstore.lab.suse
+        property: vault-backup-ssh-user
+    - secretKey: SSH_REMOTE_LOCATION
+      remoteRef:
+        key: secretstore.lab.suse
+        property: vault-backup-ssh-remote-location

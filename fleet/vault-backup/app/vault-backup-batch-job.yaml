@@ -1,0 +1,38 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: vault-backup
+spec:
+  schedule: 0 * * * *
+  jobTemplate:
+    spec:
+      ttlSecondsAfterFinished: 3600
+      template:
+        metadata:
+          labels:
+            app: vault-backup
+        spec:
+          containers:
+            - name: vault-backup
+              image: harbor.lan.ping6.nl/library/vault-backup/vault-backup:latest
+              envFrom:
+                - secretRef:
+                    name: vault-backup-config
+              volumeMounts:
+                - name: files
+                  mountPath: /backup/files/ca.pem
+                  subPath: ca.pem
+                - name: files
+                  mountPath: /backup/files/id_ecdsa
+                  subPath: id_ecdsa
+                - name: files
+                  mountPath: /backup/files/known_hosts
+                  subPath: known_hosts
+              command: ["/backup/backup.sh"]
+              resources: {}
+          volumes:
+            - name: files
+              secret:
+                secretName: vault-backup-files
+                defaultMode: 384
+          restartPolicy: Never
