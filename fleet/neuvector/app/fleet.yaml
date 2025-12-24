@@ -4,7 +4,7 @@ helm:
   repo: https://charts.rancher.io
   chart: neuvector
   releaseName: neuvector
-  version: 107.0.2+up2.8.9
+  version: 108.0.1+up2.8.10
   valuesFiles:
     - values.yaml
   takeOwnership: true
