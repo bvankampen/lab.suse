@@ -1,0 +1,8 @@
+defaultNamespace: csi-driver-nfs
+dependsOn:
+  - name: lab-suse-fleet-csi-driver-nfs-app
+
+overrideTargets:
+  - clusterSelector:
+      matchLabels:
+        fleet-app-csi-driver-nfs: "true"
