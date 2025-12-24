@@ -1,7 +1,7 @@
 defaultNamespace: csi-driver-nfs
 
 helm:
-  chart: oci://dp.apps.rancher.io/charts/kubernetes-csi-driver-nfs
+  chart: oci://harbor.lan.ping6.nl/dp.apps.rancher.io/charts/kubernetes-csi-driver-nfs
   releaseName: kubernetes-csi-driver-nfs
   version: 4.12.1
 
