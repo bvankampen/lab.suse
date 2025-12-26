@@ -1,6 +1,0 @@
-defaultNamespace: external-dns-system
-
-overrideTargets:
-  - clusterSelector:
-      matchLabels:
-        fleet-app-external-dns: "true"

@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: vault-0-internal
+  name: C
 spec:
   internalTrafficPolicy: Cluster
   publishNotReadyAddresses: true
