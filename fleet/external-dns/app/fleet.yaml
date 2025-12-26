@@ -1,0 +1,13 @@
+defaultNamespace: external-dns-system
+
+helm:
+  chart: oci://harbor.lan.ping6.nl/dp.apps.rancher.io/charts/external-dns
+  releaseName: external-dns
+  version: 1.19.0
+  valuesFiles:
+    - values.yaml
+
+overrideTargets:
+  - clusterSelector:
+      matchLabels:
+        fleet-app-external-dns: "true"
