@@ -1,0 +1,6 @@
+defaultNamespace: vault
+
+overrideTargets:
+  - clusterSelector:
+      matchLabels:
+        fleet-app-vault: true
