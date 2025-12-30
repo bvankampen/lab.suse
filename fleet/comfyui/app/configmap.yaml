@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: models
+data:
+  models.list: |
+    sd_xl_base_1.0.safetensors
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: config
+data:
+  DOWNLOAD_SOURCE: https://files.lan.ping6.nl/comfyui

@@ -19,7 +19,7 @@ spec:
         app.kubernetes.io/name: comfyui
     spec:
       containers:
-        - image: harbor.lan.ping6.nl/library/comfyui/comfyui:1.0.2
+        - image: harbor.lan.ping6.nl/library/comfyui/comfyui:1.0.4
           imagePullPolicy: IfNotPresent
           lifecycle:
             postStart:
@@ -59,6 +59,12 @@ spec:
           volumeMounts:
             - mountPath: /ComfyUI/models/
               name: comfyui-models
+            - name: models
+              mountPath: /ComfyUI/models.list
+              subPath: models.list
+          envFrom:
+            - configMapRef:
+                name: config
       dnsPolicy: ClusterFirst
       restartPolicy: Always
       runtimeClassName: nvidia
@@ -71,3 +77,6 @@ spec:
         - name: comfyui-models
           persistentVolumeClaim:
             claimName: comfyui-models
+        - name: models
+          configMap:
+            name: models
