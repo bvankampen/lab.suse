@@ -1,0 +1,23 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: comfyui-ingress-https
+  annotations:
+    cert-manager.io/cluster-issuer: local-issuer
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: comfyui.lab.suse
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: comfyui-service
+                port:
+                  number: 8080
+  tls:
+    - hosts:
+        - comfyui.lab.suse
+      secretName: comfyui-tls-local

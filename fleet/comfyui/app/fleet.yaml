@@ -1,0 +1,6 @@
+defaultNamespace: comfyui
+
+overrideTargets:
+  - clusterSelector:
+      matchLabels:
+        fleet-app-comfyui: true
