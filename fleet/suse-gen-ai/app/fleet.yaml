@@ -3,7 +3,7 @@ defaultNamespace: suse-gen-ai
 helm:
   chart: oci://harbor.lan.ping6.nl/dp.apps.rancher.io/charts/suse-ai-deployer
   releaseName: suse-gen-ai
-  version: 1.0.0
+  version: 1.1.0
   takeOwnership: true
   valuesFiles:
     - values.yaml
