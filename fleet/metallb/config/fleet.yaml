@@ -1,12 +1,12 @@
 defaultNamespace: metallb-system
 targetCustomizations:
-  - name: cluster-dell
+  - name: suselab
     clusterSelector:
       matchLabels:
-        management.cattle.io/cluster-display-name: cluster-dell
+        management.cattle.io/cluster-display-name: suselab
     yaml:
       overlays:
-        - cluster-dell
+        - suselab
   - name: cluster-gpu
     clusterSelector:
       matchLabels:
