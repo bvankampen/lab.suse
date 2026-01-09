@@ -4,7 +4,7 @@ metadata:
   name: postgresql-pv
   namespace: n8n
 spec:
-  storageClass: "local-path-nvme"
+  storageClassName: local-path-nvme
   accessModes:
     - ReadWriteOnce
   resources:

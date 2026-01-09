@@ -6,7 +6,7 @@ metadata:
   name: n8n-claim0
   namespace: n8n
 spec:
-  storageClass: "local-path-nvme"
+  storageClassName: local-path-nvme
   accessModes:
     - ReadWriteOnce
   resources:
