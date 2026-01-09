@@ -21,7 +21,7 @@ spec:
         service: postgres-n8n
     spec:
       containers:
-        - image: postgres:18.1
+        - image: dp.apps.rancher.io/containers/postgresql:18.1
           name: postgres
           resources:
             limits:
