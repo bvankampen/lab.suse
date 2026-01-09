@@ -1,0 +1,6 @@
+defaultNamespace: n8n
+
+overrideTargets:
+  - clusterSelector:
+      matchLabels:
+        fleet-app-n8n: "true"
