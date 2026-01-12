@@ -25,27 +25,27 @@ controller:
     annotations:
       cert-manager.io/cluster-issuer: local-issuer
 
-  federation:
-    mastersvc:
+    # federation:
+    #   mastersvc:
+    #     ingress:
+    #       enabled: true
+    #       host: master.demolab.lab.suse
+    #       ingressClassName: traefik
+    #       secretName: tls-master-ingress
+    #       tls: true
+    #       annotations:
+    #         cert-manager.io/cluster-issuer: local-issuer
+    #     type: ClusterIP
+    managedsvc:
       ingress:
         enabled: true
-        host: master.demolab.lab.suse
+        host: managed.demolab.lab.suse
         ingressClassName: traefik
-        secretName: tls-master-ingress
-        tls: true
+        secretName: tls-managed-ingres
         annotations:
           cert-manager.io/cluster-issuer: local-issuer
+        tls: true
       type: ClusterIP
-  #   managedsvc:
-  #     ingress:
-  #       enabled: true
-  #       host: managed.cluster-gpu.lab.suse
-  #       ingressClassName: traefik
-  #       secretName: tls-managed-ingres
-  #       annotations:
-  #         cert-manager.io/cluster-issuer: local-issuer
-  #       tls: true
-  #     type: ClusterIP
   pvc:
     accessModes:
       - ReadWriteOnce
