@@ -36,6 +36,9 @@ controller:
         annotations:
           cert-manager.io/cluster-issuer: local-issuer
       type: ClusterIP
+      annotations:
+        traefik.ingress.kubernetes.io/service.serversscheme: https
+        traefik.ingress.kubernetes.io/service.serverstransport: cattle-neuvector-system-insecure-backend@kubernetescrd
   #   managedsvc:
   #     ingress:
   #       enabled: true
