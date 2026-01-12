@@ -6,7 +6,7 @@ helm:
   repo: https://charts.rancher.io
   chart: longhorn
   releaseName: longhorn
-  version: 105.2.0+up1.8.1
+  version: 108.2.0+up1.10.1
   valuesFiles:
     - values.yaml
 
@@ -17,7 +17,7 @@ targetCustomizations:
         - "single-node/values.yaml"
     clusterSelector:
       matchLabels:
-        management.cattle.io/cluster-display-name: cluster-gpu
+        management.cattle.io/cluster-display-name: demolab
 
 overrideTargets:
   - clusterSelector:
