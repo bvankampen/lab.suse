@@ -39,7 +39,7 @@ controller:
     managedsvc:
       ingress:
         enabled: true
-        host: managed.demolab.lab.suse
+        host: neuvector-managed.demolab.lab.suse
         ingressClassName: traefik
         secretName: tls-managed-ingres
         annotations:

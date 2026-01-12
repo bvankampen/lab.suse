@@ -29,7 +29,7 @@ controller:
     mastersvc:
       ingress:
         enabled: true
-        host: master.homelab.lab.suse
+        host: neuvector-master.homelab.lab.suse
         ingressClassName: traefik
         secretName: tls-master-ingress
         tls: true
