@@ -1,13 +1,14 @@
 defaultNamespace: cattle-neuvector-system
 
 targetCustomizations:
-  - name: homelab
+  - name: traefik
     clusterSelector:
       matchLabels:
         management.cattle.io/cluster-display-name: homelab
+        management.cattle.io/cluster-display-name: demolab
     yaml:
       overlays:
-        - homelab
+        - traefik
 
 overrideTargets:
   - clusterSelector:
