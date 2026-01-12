@@ -56,6 +56,20 @@ targetCustomizations:
     yaml:
       overlays:
         - homelab
+  - name: demolab
+    clusterSelector:
+      matchLabels:
+        management.cattle.io/cluster-display-name: demolab
+    helm:
+      valuesFiles:
+        - demolab/values.yaml
+  - name: demolab
+    clusterSelector:
+      matchLabels:
+        management.cattle.io/cluster-display-name: demolab
+    yaml:
+      overlays:
+        - demolab
 
 overrideTargets:
   - clusterSelector:
