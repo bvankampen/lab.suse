@@ -25,30 +25,30 @@ controller:
     annotations:
       cert-manager.io/cluster-issuer: local-issuer
 
-    federation:
-      #   mastersvc:
-      #     ingress:
-      #       enabled: true
-      #       host: master.demolab.lab.suse
-      #       ingressClassName: traefik
-      #       secretName: tls-master-ingress
-      #       tls: true
-      #       annotations:
-      #         cert-manager.io/cluster-issuer: local-issuer
-      #     type: ClusterIP
-      managedsvc:
-        ingress:
-          enabled: true
-          host: neuvector-managed.demolab.lab.suse
-          ingressClassName: traefik
-          secretName: tls-managed-ingres
-          annotations:
-            cert-manager.io/cluster-issuer: local-issuer
-          tls: true
-        type: ClusterIP
+  federation:
+    #   mastersvc:
+    #     ingress:
+    #       enabled: true
+    #       host: master.demolab.lab.suse
+    #       ingressClassName: traefik
+    #       secretName: tls-master-ingress
+    #       tls: true
+    #       annotations:
+    #         cert-manager.io/cluster-issuer: local-issuer
+    #     type: ClusterIP
+    managedsvc:
+      ingress:
+        enabled: true
+        host: neuvector-managed.demolab.lab.suse
+        ingressClassName: traefik
+        secretName: tls-managed-ingres
         annotations:
-          traefik.ingress.kubernetes.io/service.serversscheme: https
-          traefik.ingress.kubernetes.io/service.serverstransport: cattle-neuvector-system-insecure-backend@kubernetescrd
+          cert-manager.io/cluster-issuer: local-issuer
+        tls: true
+      type: ClusterIP
+      annotations:
+        traefik.ingress.kubernetes.io/service.serversscheme: https
+        traefik.ingress.kubernetes.io/service.serverstransport: cattle-neuvector-system-insecure-backend@kubernetescrd
   pvc:
     accessModes:
       - ReadWriteOnce
