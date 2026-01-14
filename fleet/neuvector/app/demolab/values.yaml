@@ -51,7 +51,7 @@ controller:
         traefik.ingress.kubernetes.io/service.serverstransport: cattle-neuvector-system-insecure-backend@kubernetescrd
   pvc:
     accessModes:
-      - ReadWriteOnce
+      - ReadWriteMany
     enabled: true
   replicas: 1
 enforcer:
