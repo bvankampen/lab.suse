@@ -76,7 +76,7 @@ cve:
       enabled: true
       host: neuvector-registry-adapter.homelab.lab.suse
       ingressClassName: traefik
-      secretName: tls-neuvector-ingress
+      secretName: tls-neuvector-registry-adapter-ingress
       tls: true
       annotations:
         cert-manager.io/cluster-issuer: local-issuer
