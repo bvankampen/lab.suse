@@ -52,8 +52,9 @@ controller:
   pvc:
     accessModes:
       - ReadWriteMany
+    storageClass: nfs-sata
     enabled: true
-  replicas: 1
+  replicas: 3
 enforcer:
   tolerations:
     - effect: NoSchedule
