@@ -67,6 +67,8 @@ cve:
     replicas: 2
   adapter:
     enabled: true
+    harbor:
+      secretName: neuvector-registry-adapter
     svc:
       type: ClusterIP
       annotations:
