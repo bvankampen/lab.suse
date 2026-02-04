@@ -49,13 +49,6 @@ targetCustomizations:
     helm:
       valuesFiles:
         - homelab/values.yaml
-  - name: homelab
-    clusterSelector:
-      matchLabels:
-        management.cattle.io/cluster-display-name: homelab
-    yaml:
-      overlays:
-        - homelab
   - name: demolab
     clusterSelector:
       matchLabels:
@@ -63,13 +56,13 @@ targetCustomizations:
     helm:
       valuesFiles:
         - demolab/values.yaml
-  - name: demolab
+  - name: cluster-gpu
     clusterSelector:
       matchLabels:
-        management.cattle.io/cluster-display-name: demolab
-    yaml:
-      overlays:
-        - demolab
+        management.cattle.io/cluster-display-name: cluster-gpu
+    helm:
+      valuesFiles:
+        - cluster-gpu/values.yaml
 
 overrideTargets:
   - clusterSelector:

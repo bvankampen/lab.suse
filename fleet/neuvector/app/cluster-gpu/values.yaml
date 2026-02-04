@@ -1,0 +1,81 @@
+rbac: true
+bootstrapPassword: neuvector1234
+serviceAccount: neuvector
+global:
+  psp:
+    enabled: false
+  cattle:
+    url: https://rancher.suse
+    systemDefaultRegistry: registry.rancher.com
+  systemDefaultRegistry: registry.rancher.com
+controller:
+  ranchersso:
+    enabled: true
+  apisvc:
+    type: ClusterIP
+    annotations:
+      traefik.ingress.kubernetes.io/service.serversscheme: https
+      traefik.ingress.kubernetes.io/service.serverstransport: cattle-neuvector-system-insecure-backend@kubernetescrd
+  ingress:
+    enabled: true
+    host: neuvector-api.cluster-gpu.lab.suse
+    ingressClassName: traefik
+    secretName: tls-api-ingress
+    tls: true
+    annotations:
+      cert-manager.io/cluster-issuer: local-issuer
+
+  federation:
+    #   mastersvc:
+    #     ingress:
+    #       enabled: true
+    #       host: master.cluster-gpu.lab.suse
+    #       ingressClassName: traefik
+    #       secretName: tls-master-ingress
+    #       tls: true
+    #       annotations:
+    #         cert-manager.io/cluster-issuer: local-issuer
+    #     type: ClusterIP
+    managedsvc:
+      ingress:
+        enabled: true
+        host: neuvector-managed.cluster-gpu.lab.suse
+        ingressClassName: traefik
+        secretName: tls-managed-ingres
+        annotations:
+          cert-manager.io/cluster-issuer: local-issuer
+        tls: true
+      type: ClusterIP
+      annotations:
+        traefik.ingress.kubernetes.io/service.serversscheme: https
+        traefik.ingress.kubernetes.io/service.serverstransport: cattle-neuvector-system-insecure-backend@kubernetescrd
+  pvc:
+    accessModes:
+      - ReadWriteMany
+    enabled: true
+  replicas: 1
+enforcer:
+  tolerations:
+    - effect: NoSchedule
+      key: node-role.kubernetes.io/master
+    - effect: NoSchedule
+      key: node-role.kubernetes.io/control-plane
+    - effect: NoExecute
+      key: node-role.kubernetes.io/etcd
+cve:
+  scanner:
+    replicas: 2
+manager:
+  svc:
+    type: ClusterIP
+    annotations:
+      traefik.ingress.kubernetes.io/service.serversscheme: https
+      traefik.ingress.kubernetes.io/service.serverstransport: cattle-neuvector-system-insecure-backend@kubernetescrd
+  ingress:
+    enabled: true
+    host: neuvector.cluster-gpu.lab.suse
+    ingressClassName: traefik
+    secretName: tls-neuvector-ingress
+    tls: true
+    annotations:
+      cert-manager.io/cluster-issuer: local-issuer
