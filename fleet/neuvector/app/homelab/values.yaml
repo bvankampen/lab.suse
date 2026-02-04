@@ -65,6 +65,21 @@ enforcer:
 cve:
   scanner:
     replicas: 2
+  adapter:
+    enabled: true
+    svc:
+      type: ClusterIP
+      annotations:
+        traefik.ingress.kubernetes.io/service.serversscheme: https
+        traefik.ingress.kubernetes.io/service.serverstransport: cattle-neuvector-system-insecure-backend@kubernetescrd
+    ingress:
+      enabled: true
+      host: neuvector-registry-adapter.homelab.lab.suse
+      ingressClassName: traefik
+      secretName: tls-neuvector-ingress
+      tls: true
+      annotations:
+        cert-manager.io/cluster-issuer: local-issuer
 manager:
   svc:
     type: ClusterIP
