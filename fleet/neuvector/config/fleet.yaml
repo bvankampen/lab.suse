@@ -15,6 +15,13 @@ targetCustomizations:
     yaml:
       overlays:
         - traefik
+  - name: traefik-cluster-gpu
+    clusterSelector:
+      matchLabels:
+        management.cattle.io/cluster-display-name: cluster-gpu
+    yaml:
+      overlays:
+        - traefik
 
 overrideTargets:
   - clusterSelector:
