@@ -1,0 +1,26 @@
+global:
+  cattle:
+    clusterName: homelab
+    rkePathPrefix: ""
+    rkeWindowsPathPrefix: ""
+    url: https://rancher.suse
+ingress:
+  enabled: true
+  hosts[0]:
+    host: universal-proxy.lab.suse
+initialGroups:
+  groups[0]:
+    id: mcp-admins
+    name: MCP Administrators
+  groups[1]:
+    id: mcp-users
+    name: MCP Users
+initialUsers:
+  users[0]:
+    email: bas@ping6.nl
+    groups: mcp-admins
+    id: admin
+    name: System Administrator
+    password: ""
+installType: custom
+serviceResources: light
