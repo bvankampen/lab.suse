@@ -1,7 +1,7 @@
 defaultNamespace: suse-ai-universal-proxy
 
 helm:
-  chart: git@github.com:SUSE/suse-ai-up//charts/suse-ai-up
+  chart: git::https://github.com/SUSE/suse-ai-up//charts/suse-ai-up
   releaseName: suse-ai-universal-proxy
   version:
   valuesFiles:
