@@ -1,24 +1,22 @@
-paused: true
-
-defaultNamespace: suse-ai-universal-proxy
-
-helm:
-  chart: git::https://github.com/SUSE/suse-ai-up//charts/suse-ai-up
-  releaseName: suse-ai-universal-proxy
-  version: 0.1.1
-  valuesFiles:
-    - values.yaml
-  takeOwnership: true
-targetCustomizations:
-  - name: homelab
-    clusterSelector:
-      matchLabels:
-        management.cattle.io/cluster-display-name: homelab
-    helm:
-      valuesFiles:
-        - homelab/values.yaml
-
-overrideTargets:
-  - clusterSelector:
-      matchLabels:
-        fleet-app-suse-ai-universal-proxy: true
+# defaultNamespace: suse-ai-universal-proxy
+#
+# helm:
+#   chart: git::https://github.com/SUSE/suse-ai-up//charts/suse-ai-up
+#   releaseName: suse-ai-universal-proxy
+#   version: 0.1.1
+#   valuesFiles:
+#     - values.yaml
+#   takeOwnership: true
+# targetCustomizations:
+#   - name: homelab
+#     clusterSelector:
+#       matchLabels:
+#         management.cattle.io/cluster-display-name: homelab
+#     helm:
+#       valuesFiles:
+#         - homelab/values.yaml
+#
+# overrideTargets:
+#   - clusterSelector:
+#       matchLabels:
+#         fleet-app-suse-ai-universal-proxy: true
