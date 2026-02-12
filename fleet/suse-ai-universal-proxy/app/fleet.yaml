@@ -1,3 +1,5 @@
+paused: true
+
 defaultNamespace: suse-ai-universal-proxy
 
 helm:
