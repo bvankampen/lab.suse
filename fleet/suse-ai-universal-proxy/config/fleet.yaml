@@ -1,0 +1,6 @@
+defaultNamespace: suse-ai-universal-proxy
+
+overrideTargets:
+  - clusterSelector:
+      matchLabels:
+        fleet-app-suse-ai-universal-proxy: true
