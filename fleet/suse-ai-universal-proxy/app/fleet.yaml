@@ -6,6 +6,7 @@ helm:
   version: 0.1.1
   valuesFiles:
     - values.yaml
+    - mcp_registry.yaml
   takeOwnership: true
 targetCustomizations:
   - name: homelab
@@ -15,13 +16,6 @@ targetCustomizations:
     helm:
       valuesFiles:
         - homelab/values.yaml
-  - name: homelab-overlay
-    clusterSelector:
-      matchLabels:
-        management.cattle.io/cluster-display-name: homelab
-    yaml:
-      overlays:
-        - homelab
 
 overrideTargets:
   - clusterSelector:
