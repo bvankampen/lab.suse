@@ -33,3 +33,6 @@ initialUsers:
       password: ""
 installType: custom
 serviceResources: light
+auth:
+  devMode: true
+  mode: dev
