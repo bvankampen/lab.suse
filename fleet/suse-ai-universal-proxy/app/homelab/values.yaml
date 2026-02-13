@@ -4,6 +4,8 @@ global:
     rkePathPrefix: ""
     rkeWindowsPathPrefix: ""
     url: https://rancher.suse
+ingress:
+  enable: false
 # NOT SUPPORTED YET
 # ingress:
 #   enabled: true
