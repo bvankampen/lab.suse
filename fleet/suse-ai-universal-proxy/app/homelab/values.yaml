@@ -4,17 +4,20 @@ global:
     rkePathPrefix: ""
     rkeWindowsPathPrefix: ""
     url: https://rancher.suse
-ingress:
-  enabled: true
-  className: traefik
-  annotations:
-    cert-manager.io/cluster-issuer: local-issuer
-  hosts:
-    - host: universal-proxy.lab.suse
-  tls:
-    - secretName: suse-ai-up-tls
-      hosts:
-        - universal-proxy.lab.suse
+# NOT SUPPORTED YET
+# ingress:
+#   enabled: true
+#   className: traefik
+#   annotations:
+#     cert-manager.io/cluster-issuer: local-issuer
+#   hosts:
+#     - host: universal-proxy.lab.suse
+#   tls:
+#     - secretName: suse-ai-up-tls
+#       hosts:
+#         - universal-proxy.lab.suse
+service:
+  type: LoadBalancer
 initialGroups:
   groups:
     - id: mcp-admins
