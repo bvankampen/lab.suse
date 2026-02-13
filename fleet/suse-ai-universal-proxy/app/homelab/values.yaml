@@ -22,7 +22,6 @@ initialGroups:
   groups:
     - id: mcp-admins
       name: MCP Administrators
-  groups:
     - id: mcp-users
       name: MCP Users
 initialUsers:
