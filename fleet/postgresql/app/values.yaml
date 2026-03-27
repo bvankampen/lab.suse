@@ -1,0 +1,14 @@
+auth:
+  postgresUsername: postgres
+  replicationUsername: replication
+  existingSecret: "postgres-secret"
+service:
+  enabled: true
+  type: LoadBalancer
+persistence:
+  enabled: true
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 10Gi

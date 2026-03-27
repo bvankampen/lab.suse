@@ -1,0 +1,6 @@
+defaultNamespace: postgresql
+
+overrideTargets:
+  - clusterSelector:
+      matchLabels:
+        fleet-app-postgresql: "true"

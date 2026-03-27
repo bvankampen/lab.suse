@@ -1,0 +1,13 @@
+defaultNamespace: postgresql
+
+helm:
+  chart: oci://harbor.lan.ping6.nl/dp.apps.rancher.io/charts/postgresql
+  releaseName: postgresql
+  version: 5.5.0
+  valuesFiles:
+    - values.yaml
+
+overrideTargets:
+  - clusterSelector:
+      matchLabels:
+        fleet-app-postgresql: "true"
