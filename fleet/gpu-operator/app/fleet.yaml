@@ -5,7 +5,7 @@ helm:
   chart: gpu-operator
   # chart: oci://registry.lab.suse/charts/gpu-operator
   # version: 25.10.1
-  version: 26.3.0
+  version: v26.3.0
   releaseName: gpu-operator
   valuesFiles:
     - values.yaml
