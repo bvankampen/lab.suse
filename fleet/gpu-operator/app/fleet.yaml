@@ -3,7 +3,7 @@ defaultNamespace: gpu-operator-system
 helm:
   # repo: https://helm.ngc.nvidia.com/nvidia
   # chart: gpu-operator
-  repo: oci://registry.lab.suse/charts/gpu-operator
+  chart: oci://registry.lab.suse/charts/gpu-operator
   version: 25.10.1
   releaseName: gpu-operator
   valuesFiles:
