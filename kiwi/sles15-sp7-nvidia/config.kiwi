@@ -73,7 +73,7 @@
         <package name="fbiterm"/>
         <package name="xfsprogs"/>
         <package name="bash-completion"/>
-        <package name="kernel-default"/>
+        <package name="kernel-default=6.4.0-150700.53.31.1"/>
     </packages>
 
     <packages type="bootstrap">
@@ -94,8 +94,8 @@
 
     <!-- NVIDIA DRIVERS -->
     <packages type="image">
-        <package name="nvidia-open-driver-G06-signed-cuda-kmp-default=575.57.08_k6.4.0_150700.51-150700.3.14.2"/>
-        <package name="nvidia-compute-utils-G06=575.57.08-1"/>
+        <package name="nvidia-open-driver-G06-signed-cuda-kmp-default=580.126.20_k6.4.0_150700.53.31-150700.3.45.1"/>
+        <package name="nvidia-compute-utils-G06=580.126.20"/>
         <package name="nvidia-container-toolkit"/>
     </packages>
 
