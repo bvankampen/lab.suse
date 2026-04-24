@@ -19,7 +19,7 @@ ingress:
 #       hosts:
 #         - universal-proxy.lab.suse
 service:
-  type: NodePort
+  type: LoadBalancer
 initialGroups:
   groups:
     - id: mcp-admins
