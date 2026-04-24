@@ -17,3 +17,7 @@ devicePlugin:
             resources:
             - name: nvidia.com/gpu
               replicas: 16
+toolkit:
+  env:
+    - name: CONTAINERD_SOCKET
+      value: /run/k3s/containerd/containerd.sock
