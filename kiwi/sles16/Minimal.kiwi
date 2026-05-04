@@ -1,0 +1,573 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- OBS-Profiles: kvm-and-xen -->
+<!-- OBS-Milestone: %current_milestone -->
+<image schemaversion="7.4" name="Leap-16.0-Minimal" displayname="openSUSE Leap 16.0">
+    <description type="system">
+        <author>openSUSE</author>
+        <contact>crc@suse.com</contact>
+        <specification>openSUSE Leap 16.0 Minimal</specification>
+    </description>
+    <profiles>
+        <profile name="kvm-and-xen" description="Minimal for KVM and Xen" arch="x86_64"/>
+        <profile name="kvm-and-xen-encrypt" description="Minimal for KVM and Xen (Encrypted)" arch="x86_64"/>
+        <profile name="kvm" description="Minimal for KVM" arch="aarch64"/>
+        <profile name="kvm-encrypt" description="Minimal for KVM (Encrypted)" arch="aarch64"/>
+        <profile name="VMware" description="Minimal for VMware" arch="x86_64"/>
+        <profile name="Vagrant" description="Minimal for Vagrant" arch="x86_64"/>
+        <profile name="MS-HyperV" description="Minimal for Hyper-V" arch="aarch64,x86_64"/>
+        <profile name="Cloud" description="Minimal for Cloud" arch="aarch64,x86_64"/>
+        <profile name="RaspberryPi" description="Minimal for the Raspberry Pi" arch="aarch64"/>
+        <profile name="s390x-kvm" description="Minimal Image for KVM" arch="s390x"/>
+        <profile name="s390x-Cloud" description="Minimal Image for Cloud" arch="s390x"/>
+        <profile name="s390x-dasd" description="DASD Minimal Image for ZSystems" arch="s390x"/>
+        <profile name="s390x-dasd-Cloud" description="Minimal Image for Cloud on DASD" arch="s390x"/>
+        <profile name="s390x-fcp" description="Raw disk for s390x - SCSI" arch="s390x"/>
+        <profile name="s390x-fcp-Cloud" description="Minimal Image for Cloud" arch="s390x"/>
+        <profile name="ppc64le-4096-raw" description="Minimal ppc64le (Raw Image)" arch="ppc64le"/>
+        <profile name="ppc64le-4096-qcow2" description="Minimal ppc64le (QCOW2 Image)" arch="ppc64le"/>
+    </profiles>
+    <preferences profiles="kvm-and-xen">
+        <version>16.0.0</version>
+        <packagemanager>zypper</packagemanager>
+        <bootsplash-theme>openSUSE</bootsplash-theme>
+        <bootloader-theme>openSUSE</bootloader-theme>
+        <rpm-excludedocs>true</rpm-excludedocs>
+        <type image="oem" filesystem="btrfs" format="qcow2" firmware="uefi" efipartsize="512" bootpartition="false" bootkernel="custom" devicepersistency="by-uuid" btrfs_quota_groups="true" btrfs_root_is_snapshot="true" bundle_format="%N-VM.%A-%I">
+            <bootloader name="grub2"/>
+            <systemdisk>
+                <volume name="home"/>
+                <volume name="root"/>
+                <volume name="tmp"/>
+                <volume name="opt"/>
+                <volume name="srv"/>
+                <volume name="boot/grub2/i386-pc"/>
+                <volume name="boot/grub2/x86_64-efi" mountpoint="boot/grub2/x86_64-efi"/>
+                <volume name="usr/local"/>
+                <volume name="var" copy_on_write="false"/>
+            </systemdisk>
+            <size unit="G">24</size>
+        </type>
+    </preferences>
+    <preferences profiles="kvm-and-xen-encrypt">
+        <version>16.0.0</version>
+        <packagemanager>zypper</packagemanager>
+        <bootsplash-theme>openSUSE</bootsplash-theme>
+        <bootloader-theme>openSUSE</bootloader-theme>
+        <rpm-excludedocs>true</rpm-excludedocs>
+        <type image="oem" filesystem="btrfs" format="qcow2" firmware="uefi" efipartsize="512" bootpartition="false" bootkernel="custom" initrd_system="none" devicepersistency="by-uuid" btrfs_quota_groups="true" btrfs_root_is_snapshot="true" bundle_format="%N-VM.%A-%I">
+            <bootloader name="custom"/>
+            <systemdisk>
+                <volume name="home"/>
+                <volume name="root"/>
+                <volume name="tmp"/>
+                <volume name="opt"/>
+                <volume name="srv"/>
+                <volume name="usr/local"/>
+                <volume name="var" copy_on_write="false"/>
+            </systemdisk>
+            <size unit="G">24</size>
+        </type>
+    </preferences>
+    <preferences profiles="kvm">
+        <version>16.0.0</version>
+        <packagemanager>zypper</packagemanager>
+        <bootsplash-theme>openSUSE</bootsplash-theme>
+        <bootloader-theme>openSUSE</bootloader-theme>
+        <rpm-excludedocs>true</rpm-excludedocs>
+        <type image="oem" filesystem="btrfs" format="qcow2" firmware="uefi" efipartsize="512" bootpartition="false" bootkernel="custom" devicepersistency="by-uuid" btrfs_quota_groups="true" btrfs_root_is_snapshot="true" bundle_format="%N-VM.%A-%I">
+            <bootloader name="grub2"/>
+            <systemdisk>
+                <volume name="home"/>
+                <volume name="root"/>
+                <volume name="tmp"/>
+                <volume name="opt"/>
+                <volume name="srv"/>
+                <volume name="boot/grub2/arm64-efi" mountpoint="boot/grub2/arm64-efi"/>
+                <volume name="usr/local"/>
+                <volume name="var" copy_on_write="false"/>
+            </systemdisk>
+            <size unit="G">24</size>
+        </type>
+    </preferences>
+    <preferences profiles="kvm-encrypt">
+        <version>16.0.0</version>
+        <packagemanager>zypper</packagemanager>
+        <bootsplash-theme>openSUSE</bootsplash-theme>
+        <bootloader-theme>openSUSE</bootloader-theme>
+        <rpm-excludedocs>true</rpm-excludedocs>
+        <type image="oem" filesystem="btrfs" format="qcow2" firmware="uefi" efipartsize="512" bootpartition="false" bootkernel="custom" initrd_system="none" devicepersistency="by-uuid" btrfs_quota_groups="true" btrfs_root_is_snapshot="true" bundle_format="%N-VM.%A-%I">
+            <bootloader name="custom"/>
+            <systemdisk>
+                <volume name="home"/>
+                <volume name="root"/>
+                <volume name="tmp"/>
+                <volume name="opt"/>
+                <volume name="srv"/>
+                <volume name="usr/local"/>
+                <volume name="var" copy_on_write="false"/>
+            </systemdisk>
+            <size unit="G">24</size>
+        </type>
+    </preferences>
+    <preferences profiles="VMware">
+        <version>16.0.0</version>
+        <packagemanager>zypper</packagemanager>
+        <bootsplash-theme>openSUSE</bootsplash-theme>
+        <bootloader-theme>openSUSE</bootloader-theme>
+        <rpm-excludedocs>true</rpm-excludedocs>
+        <type image="oem" filesystem="btrfs" format="vmdk" firmware="uefi" efipartsize="512" bootpartition="false" bootkernel="custom" devicepersistency="by-uuid" btrfs_quota_groups="true" btrfs_root_is_snapshot="true" bundle_format="%N-VM.%A-%I">
+            <bootloader name="grub2"/>
+            <systemdisk>
+                <volume name="home"/>
+                <volume name="root"/>
+                <volume name="tmp"/>
+                <volume name="opt"/>
+                <volume name="srv"/>
+                <volume name="boot/grub2/i386-pc"/>
+                <volume name="boot/grub2/x86_64-efi" mountpoint="boot/grub2/x86_64-efi"/>
+                <volume name="usr/local"/>
+                <volume name="var" copy_on_write="false"/>
+            </systemdisk>
+            <size unit="G">24</size>
+            <machine memory="1024" HWversion="10" guestOS="sles-64">
+                <vmnic interface="0" driver="vmxnet3" mode="nat"/>
+            </machine>
+        </type>
+    </preferences>
+    <preferences profiles="Vagrant">
+        <version>16.0.0</version>
+        <packagemanager>zypper</packagemanager>
+        <bootsplash-theme>openSUSE</bootsplash-theme>
+        <bootloader-theme>openSUSE</bootloader-theme>
+        <rpm-excludedocs>true</rpm-excludedocs>
+        <type image="oem" filesystem="btrfs" format="vagrant" firmware="uefi" efipartsize="512" bootpartition="false" bootkernel="custom" devicepersistency="by-uuid" btrfs_quota_groups="true" btrfs_root_is_snapshot="true" bundle_format="%N-VM.%A-%I">
+            <bootloader name="grub2"/>
+            <systemdisk>
+                <volume name="home"/>
+                <volume name="root"/>
+                <volume name="tmp"/>
+                <volume name="opt"/>
+                <volume name="srv"/>
+                <volume name="boot/grub2/i386-pc"/>
+                <volume name="boot/grub2/x86_64-efi" mountpoint="boot/grub2/x86_64-efi"/>
+                <volume name="usr/local"/>
+                <volume name="var" copy_on_write="false"/>
+            </systemdisk>
+            <size unit="G">24</size>
+            <vagrantconfig provider="libvirt" virtualsize="24"/>
+            <machine memory="1024" HWversion="10" guestOS="sles-64">
+                <vmnic interface="0" driver="vmxnet3" mode="nat"/>
+            </machine>
+        </type>
+    </preferences>
+    <preferences profiles="Cloud">
+        <version>16.0.0</version>
+        <packagemanager>zypper</packagemanager>
+        <bootsplash-theme>openSUSE</bootsplash-theme>
+        <bootloader-theme>openSUSE</bootloader-theme>
+        <rpm-excludedocs>true</rpm-excludedocs>
+        <type image="oem" filesystem="xfs" format="qcow2" vga="normal" firmware="uefi" efipartsize="512" bootpartition="false" bootkernel="custom" devicepersistency="by-uuid" bundle_format="%N-VM.%A-%I">
+            <bootloader name="grub2" timeout="1"/>
+        </type>
+    </preferences>
+    <preferences profiles="MS-HyperV" arch="x86_64">
+        <version>16.0.0</version>
+        <packagemanager>zypper</packagemanager>
+        <bootsplash-theme>openSUSE</bootsplash-theme>
+        <bootloader-theme>openSUSE</bootloader-theme>
+        <rpm-excludedocs>true</rpm-excludedocs>
+        <type image="oem" filesystem="btrfs" format="vhdx" firmware="uefi" efipartsize="512" bootpartition="false" bootkernel="custom" devicepersistency="by-uuid" btrfs_quota_groups="true" btrfs_root_is_snapshot="true" bundle_format="%N-VM.%A-%I">
+            <bootloader name="grub2" timeout="10"/>
+            <systemdisk>
+                <volume name="home"/>
+                <volume name="root"/>
+                <volume name="tmp"/>
+                <volume name="opt"/>
+                <volume name="srv"/>
+                <volume name="boot/grub2/i386-pc"/>
+                <volume name="boot/grub2/x86_64-efi" mountpoint="boot/grub2/x86_64-efi"/>
+                <volume name="usr/local"/>
+                <volume name="var" copy_on_write="false"/>
+            </systemdisk>
+            <size unit="G">24</size>
+        </type>
+    </preferences>
+
+    <preferences profiles="MS-HyperV" arch="aarch64">
+        <version>16.0.0</version>
+        <packagemanager>zypper</packagemanager>
+        <bootsplash-theme>openSUSE</bootsplash-theme>
+        <bootloader-theme>openSUSE</bootloader-theme>
+        <rpm-excludedocs>true</rpm-excludedocs>
+        <type image="oem" filesystem="btrfs" format="vhdx" firmware="uefi" efipartsize="512" bootpartition="false" bootkernel="custom" devicepersistency="by-uuid" btrfs_quota_groups="true" btrfs_root_is_snapshot="true" bundle_format="%N-VM.%A-%I">
+            <bootloader name="grub2" timeout="10"/>
+            <systemdisk>
+                <volume name="home"/>
+                <volume name="root"/>
+                <volume name="tmp"/>
+                <volume name="opt"/>
+                <volume name="srv"/>
+                <volume name="boot/grub2/arm64-efi" mountpoint="boot/grub2/arm64-efi"/>
+                <volume name="usr/local"/>
+                <volume name="var" copy_on_write="false"/>
+            </systemdisk>
+            <size unit="G">24</size>
+        </type>
+    </preferences>
+    <preferences profiles="RaspberryPi">
+        <version>16.0.0</version>
+        <packagemanager>zypper</packagemanager>
+        <bootsplash-theme>openSUSE</bootsplash-theme>
+        <bootloader-theme>openSUSE</bootloader-theme>
+        <rpm-excludedocs>true</rpm-excludedocs>
+        <type image="oem" initrd_system="dracut" filesystem="btrfs" fsmountoptions="noatime,compress=lzo" firmware="efi" bootpartition="false" devicepersistency="by-uuid" btrfs_quota_groups="true" btrfs_root_is_snapshot="true" efipartsize="64" editbootinstall="editbootinstall_rpi.sh" bundle_format="%N-Image.%A-%I" disk_start_sector="4096">
+            <bootloader name="grub2"/>
+            <systemdisk>
+                <volume name="home"/>
+                <volume name="root"/>
+                <volume name="tmp"/>
+                <volume name="opt"/>
+                <volume name="srv"/>
+                <volume name="boot/grub2/arm64-efi" mountpoint="boot/grub2/arm64-efi"/>
+                <volume name="usr/local"/>
+                <volume name="var" copy_on_write="false"/>
+            </systemdisk>
+            <oemconfig>
+                <oem-swap>true</oem-swap>
+                <oem-swapsize>1000</oem-swapsize>
+                <oem-skip-verify>true</oem-skip-verify>
+            </oemconfig>
+        </type>
+    </preferences>
+    <preferences profiles="s390x-kvm">
+        <type image="oem" bootkernel="custom" bootpartition="true" bootpartsize="300" bootfilesystem="ext2" btrfs_quota_groups="true" btrfs_root_is_snapshot="true" bundle_format="%N-VM.%A-%I" filesystem="btrfs" format="qcow2" devicepersistency="by-uuid">
+            <bootloader name="grub2_s390x_emu"/>
+            <systemdisk>
+                <volume name="boot/grub2/s390x-emu" mountpoint="boot/grub2/s390x-emu"/>
+                <volume name="home"/>
+                <volume name="root"/>
+                <volume name="opt"/>
+                <volume name="srv"/>
+                <volume name="usr/local"/>
+                <volume name="var" copy_on_write="false"/>
+            </systemdisk>
+            <size unit="G">32</size>
+        </type>
+        <version>16.0.0</version>
+        <packagemanager>zypper</packagemanager>
+        <bootloader-theme>SUSE</bootloader-theme>
+        <rpm-excludedocs>true</rpm-excludedocs>
+    </preferences>
+    <preferences profiles="s390x-Cloud">
+        <type image="oem" bootkernel="custom" bootpartition="true" bootpartsize="300" bootfilesystem="ext2" bundle_format="%N-VM.%A-%I" filesystem="xfs" format="qcow2" devicepersistency="by-uuid">
+            <bootloader name="grub2_s390x_emu"/>
+            <size unit="G">24</size>
+        </type>
+        <version>16.0.0</version>
+        <packagemanager>zypper</packagemanager>
+        <bootloader-theme>SUSE</bootloader-theme>
+        <rpm-excludedocs>true</rpm-excludedocs>
+    </preferences>
+    <preferences profiles="s390x-dasd">
+        <type image="oem" bootkernel="custom" bootpartition="true" bootpartsize="300" bootfilesystem="ext2" btrfs_quota_groups="true" btrfs_root_is_snapshot="true" bundle_format="%N-Image.%A-%I" filesystem="btrfs" kernelcmdline="dasd_mod.dasd=ipldev hvc_iucv=8 TERM=dumb security=selinux selinux=1 quiet rw" devicepersistency="by-uuid" target_blocksize="4096">
+            <bootloader name="grub2_s390x_emu" console="serial" targettype="CDL"/>
+            <systemdisk>
+                <volume name="boot/grub2/s390x-emu" mountpoint="boot/grub2/s390x-emu"/>
+                <volume name="home"/>
+                <volume name="root"/>
+                <volume name="opt"/>
+                <volume name="srv"/>
+                <volume name="usr/local"/>
+                <volume name="var" copy_on_write="false"/>
+            </systemdisk>
+            <size unit="G">5</size>
+        </type>
+        <version>16.0.0</version>
+        <packagemanager>zypper</packagemanager>
+        <bootloader-theme>SUSE</bootloader-theme>
+        <rpm-excludedocs>true</rpm-excludedocs>
+    </preferences>
+    <preferences profiles="s390x-dasd-Cloud">
+        <type image="oem" bootkernel="custom" bootpartition="true" bootpartsize="300" bootfilesystem="ext2" bundle_format="%N-Image.%A-%I" filesystem="xfs" kernelcmdline="dasd_mod.dasd=ipldev hvc_iucv=8 TERM=dumb security=selinux selinux=1 quiet net.ifnames=0 rw" devicepersistency="by-uuid" target_blocksize="4096">
+            <bootloader name="grub2_s390x_emu" console="serial" targettype="CDL"/>
+            <size unit="G">5</size>
+        </type>
+        <version>16.0.0</version>
+        <packagemanager>zypper</packagemanager>
+        <bootloader-theme>SUSE</bootloader-theme>
+        <rpm-excludedocs>true</rpm-excludedocs>
+    </preferences>
+    <preferences profiles="s390x-fcp">
+        <version>16.0.0</version>
+        <packagemanager>zypper</packagemanager>
+        <bootsplash-theme>openSUSE</bootsplash-theme>
+        <bootloader-theme>openSUSE</bootloader-theme>
+        <rpm-excludedocs>true</rpm-excludedocs>
+        <locale>en_US</locale>
+        <type
+          image="oem"
+          filesystem="btrfs"
+          installpxe="true"
+          bootpartition="true"
+          bootpartsize="300"
+          bundle_format="%N-Image.%A-%I"
+          bootfilesystem="ext4"
+          initrd_system="dracut"
+          kernelcmdline="hvc_iucv=8 TERM=dumb security=selinux selinux=1 quiet systemd.show_status=1 rw"
+          devicepersistency="by-uuid"
+          btrfs_root_is_snapshot="true"
+          btrfs_quota_groups="true"
+        >
+            <oemconfig>
+                <oem-multipath-scan>true</oem-multipath-scan>
+            </oemconfig>
+            <bootloader name="grub2_s390x_emu" console="serial" timeout="3" targettype="SCSI"/>
+            <systemdisk>
+                <volume name="home"/>
+                <volume name="root"/>
+                <volume name="opt"/>
+                <volume name="srv"/>
+                <volume name="boot/grub2/s390x-emu" mountpoint="boot/grub2/s390x-emu"/>
+                <volume name="usr/local"/>
+                <volume name="var" copy_on_write="false"/>
+            </systemdisk>
+            <size unit="G">5</size>
+        </type>
+    </preferences>
+    <preferences profiles="s390x-fcp-Cloud">
+    <type
+        image="oem"
+        bootkernel="custom"
+        bootpartition="true"
+        bootpartsize="300"
+        bootfilesystem="ext2"
+        bundle_format="%N-Image.%A-%I"
+        filesystem="xfs"
+        kernelcmdline="hvc_iucv=8 TERM=dumb security=selinux selinux=1 quiet net.ifnames=0 rw rd.multipath=1"
+        devicepersistency="by-uuid"
+    >
+        <oemconfig>
+            <oem-multipath-scan>true</oem-multipath-scan>
+        </oemconfig>
+        <bootloader
+            name="grub2_s390x_emu"
+            console="serial"
+            targettype="SCSI"
+        />
+        <size unit="G">5</size>
+    </type>
+    <version>16.0.0</version>
+    <packagemanager>zypper</packagemanager>
+    <bootloader-theme>openSUSE</bootloader-theme>
+    <rpm-excludedocs>true</rpm-excludedocs>
+</preferences>
+    <preferences profiles="ppc64le-4096-raw">
+        <version>16.0.0</version>
+        <packagemanager>zypper</packagemanager>
+        <bootsplash-theme>openSUSE</bootsplash-theme>
+        <bootloader-theme>openSUSE</bootloader-theme>
+        <rpm-excludedocs>true</rpm-excludedocs>
+        <type
+            image="oem"
+            filesystem="btrfs"
+            firmware="ofw"
+            bootpartition="false"
+            bootkernel="custom"
+            devicepersistency="by-uuid"
+            btrfs_quota_groups="true"
+            btrfs_root_is_snapshot="true"
+            target_blocksize="4096"
+            bundle_format="%N-VM.%A-%I"
+        >
+            <systemdisk>
+                <volume name="root"/>
+                <volume name="home"/>
+                <volume name="tmp"/>
+                <volume name="opt"/>
+                <volume name="srv"/>
+                <volume name="boot/grub2/powerpc-ieee1275"/>
+                <volume name="usr/local"/>
+                <volume name="var" copy_on_write="false"/>
+            </systemdisk>
+        </type>
+    </preferences>
+    <preferences profiles="ppc64le-4096-qcow2">
+        <version>16.0.0</version>
+        <packagemanager>zypper</packagemanager>
+        <bootsplash-theme>openSUSE</bootsplash-theme>
+        <bootloader-theme>openSUSE</bootloader-theme>
+        <rpm-excludedocs>true</rpm-excludedocs>
+        <type
+            image="oem"
+            format="qcow2"
+            filesystem="btrfs"
+            firmware="ofw"
+            devicepersistency="by-uuid"
+            btrfs_quota_groups="true"
+            btrfs_root_is_snapshot="true"
+            target_blocksize="4096"
+            bundle_format="%N-VM.%A-%I"
+        >
+            <systemdisk>
+                <volume name="root"/>
+                <volume name="home"/>
+                <volume name="tmp"/>
+                <volume name="opt"/>
+                <volume name="srv"/>
+                <volume name="boot/grub2/powerpc-ieee1275"/>
+                <volume name="usr/local"/>
+                <volume name="var" copy_on_write="false"/>
+            </systemdisk>
+            <size unit="G">24</size>
+        </type>
+    </preferences>
+    <repository type="rpm-md">
+        <source path="obsrepositories:/"/>
+    </repository>
+    <packages type="image">
+        <package name="patterns-base-base"/>
+        <package name="patterns-base-selinux"/>
+        <package name="selinux-policy-targeted"/> <!-- only suggested in patterns-base-selinux on openSUSE -->
+        <package name="audit"/>
+        <package name="aaa_base-extras"/>
+        <package name="acl"/>
+        <package name="chrony"/>
+        <package name="curl"/>
+        <package name="dracut"/>
+        <package name="fipscheck"/>
+        <package name="group(mail)"/>
+        <!-- Previously pam_cracklib was part of pam, but the replacement is only recommended -->
+        <package name="pam_pwquality"/>
+        <package name="cracklib-dict-small"/> <!-- Avoid the big 10MiB one -->
+        <package name="group(wheel)"/>
+        <package name="iputils"/>
+        <package name="issue-generator"/>
+        <package name="vim-small"/>
+        <package name="less"/>
+        <package name="tar"/>
+        <package name="parted"/>
+        <package name="SUSEConnect"/>
+        <package name="openSUSE-repos-Leap"/>
+        <package name="openSUSE-build-key"/>
+        <package name="systemd"/>
+        <package name="timezone"/>
+        <package name="systemd-default-settings-branding-openSUSE"/>
+        <package name="iproute2"/>
+        <package name="openssh"/>
+        <package name="rsync"/>
+        <package name="dosfstools"/>
+        <package name="lsof"/>
+        <package name="zypper-needs-restarting"/>
+        <package name="zypper-lifecycle-plugin"/>
+        <package name="combustion &gt;= 1.2"/>
+        <package name="NetworkManager"/>
+        <package name="NetworkManager-branding-openSUSE"/>
+        <package name="dracut-kiwi-oem-repart"/>
+    </packages>
+    <!-- s390x base packages for every profile -->
+    <packages type="image" profiles="s390x-kvm,s390x-Cloud,s390x-dasd,s390x-dasd-Cloud,s390x-fcp,s390x-fcp-Cloud">
+        <package name="kernel-default"/>
+        <package name="patterns-base-bootloader"/>
+        <package name="grub2-s390x-emu" arch="s390x"/>
+        <package name="blog" arch="s390x"/>
+    </packages>
+    <packages type="image" profiles="kvm-and-xen,kvm-and-xen-sap,kvm-and-xen-encrypt,kvm,kvm-encrypt,VMware,VMware-sap,Vagrant,MS-HyperV,MS-HyperV-sap,RaspberryPi,s390x-kvm,s390x-dasd,s390x-fba,ppc64le-4096-raw,ppc64le-4096-qcow2">
+        <package name="btrfsprogs"/>
+        <package name="btrfsmaintenance"/>
+        <package name="snapper-zypp-plugin"/>
+        <package name="rollback-helper"/>
+        <package name="snapper"/>
+        <package name="jeos-firstboot"/>
+        <package name="firewalld"/>
+    </packages>
+    <packages type="image" profiles="kvm-and-xen,kvm-and-xen-sap,kvm-and-xen-encrypt,kvm,kvm-encrypt,VMware,VMware-sap,Vagrant,MS-HyperV,MS-HyperV-sap,Cloud,Cloud-sap">
+        <package name="shim" arch="aarch64,x86_64"/>
+    </packages>
+    <!-- Plain GRUB -->
+    <packages type="image" profiles="kvm-and-xen,kvm-and-xen-sap,kvm,VMware,VMware-sap,Vagrant,MS-HyperV,MS-HyperV-sap,Cloud,Cloud-sap,RaspberryPi,s390x-kvm,s390x-Cloud,s390x-dasd,s390x-dasd-Cloud,s390x-fba,s390x-fba-Cloud,ppc64le-4096-raw,ppc64le-4096-qcow2">
+        <package name="grub2"/>
+        <package name="grub2-branding-openSUSE" arch="aarch64,x86_64"/>
+        <package name="grub2-arm64-efi" arch="aarch64"/>
+        <package name="grub2-s390x-emu" arch="s390x"/>
+        <package name="grub2-x86_64-efi" arch="x86_64"/>
+        <package name="patterns-base-bootloader"/>
+        <package name="grub2-powerpc-ieee1275" arch="ppc64le"/>
+    </packages>
+    <!-- GRUB + btrfs integration -->
+    <packages type="image" profiles="kvm-and-xen,kvm-and-xen-sap,kvm,VMware,VMware-sap,Vagrant,MS-HyperV,MS-HyperV-sap,RaspberryPi,s390x-kvm,s390x-dasd,s390x-fba">
+        <package name="grub2-snapper-plugin"/>
+    </packages>
+    <!-- GRUB with BLS + btrfs integration -->
+    <packages type="image" profiles="kvm-and-xen-encrypt,kvm-encrypt">
+        <package name="grub2-arm64-efi-bls" arch="aarch64"/>
+        <package name="grub2-x86_64-efi-bls" arch="x86_64"/>
+        <package name="sdbootutil"/>
+    </packages>
+    <!-- Automatic encryption, needs sdbootutil -->
+    <packages type="image" profiles="kvm-and-xen-encrypt,kvm-encrypt">
+        <package name="disk-encryption-tool"/>
+        <package name="sdbootutil-enroll"/>
+        <package name="sdbootutil-jeos-firstboot-enroll"/>
+    </packages>
+    <packages type="image" profiles="kvm-and-xen,kvm-and-xen-sap,kvm-and-xen-encrypt">
+        <package name="xen-tools-domU" arch="x86_64"/>
+        <package name="xen-libs" arch="x86_64"/>
+    </packages>
+    <packages type="image" profiles="kvm-and-xen,kvm-and-xen-sap,kvm-and-xen-encrypt,kvm,kvm-encrypt,Cloud,Cloud-sap,ppc64le-4096-raw,ppc64le-4096-qcow2">
+        <package name="kernel-default-base"/>
+    </packages>
+    <packages type="image" profiles="kvm-and-xen,kvm-and-xen-sap,kvm-and-xen-encrypt,kvm,kvm-encrypt,Cloud,Cloud-sap,s390x-kvm,s390x-Cloud,ppc64le-4096-qcow2">
+        <package name="qemu-guest-agent"/>
+    </packages>
+    <packages type="image" profiles="VMware,VMware-sap">
+        <package name="cloud-init"/>
+        <package name="cloud-init-config-suse"/>
+        <package name="open-vm-tools" arch="x86_64"/>
+        <package name="kernel-default-base"/>
+    </packages>
+    <packages type="image" profiles="Vagrant">
+        <package name="kernel-default-base"/>
+        <package name="nfs-client"/>
+        <package name="sudo"/>
+    </packages>
+    <packages type="image" profiles="Cloud,Cloud-sap,s390x-Cloud,s390x-dasd-Cloud,s390x-fcp-Cloud">
+        <package name="cloud-init"/>
+        <package name="cloud-init-config-suse"/>
+        <package name="jeos-firstboot"/>
+        <package name="xfsprogs"/>
+    </packages>
+    <packages type="image" profiles="MS-HyperV,MS-HyperV-sap">
+        <package name="hyper-v" arch="aarch64,x86_64"/>
+        <package name="kernel-default-base"/>
+    </packages>
+    <packages type="image" profiles="RaspberryPi">
+        <package name="raspberrypi-eeprom" arch="aarch64"/>
+        <package name="raspberrypi-firmware" arch="aarch64"/>
+        <package name="raspberrypi-firmware-config" arch="aarch64"/>
+        <package name="raspberrypi-firmware-dt" arch="aarch64"/>
+        <package name="arm-trusted-firmware-rpi4" arch="aarch64"/>
+        <package name="u-boot-rpiarm64" arch="aarch64"/>
+        <package name="kernel-default"/>
+        <package name="wireless-regdb"/>
+        <package name="wireless-tools"/>
+        <package name="wpa_supplicant"/>
+        <package name="bcm43xx-firmware"/>
+        <package name="kernel-firmware-brcm"/>
+    </packages>
+    <packages type="bootstrap">
+        <package name="filesystem"/>
+        <package name="glibc-locale-base"/>
+        <package name="ca-certificates-mozilla"/>
+    </packages>
+    <packages type="bootstrap" profiles="kvm-and-xen,kvm-and-xen-encrypt,kvm,kvm-encrypt,VMware,Vagrant,MS-HyperV,Cloud,RaspberryPi,s390x-kvm,s390x-Cloud,s390x-dasd,s390x-dasd-Cloud,s390x-fcp,s390x-fcp-Cloud">
+        <package name="Leap-release"/>
+    </packages>
+    <packages type="image" profiles="s390x-fcp,s390x-fcp-Cloud">
+        <package name="multipath-tools"/>
+       	<package name="dracut-kiwi-oem-dump"/>
+   </packages>
+   <packages type="image" profiles="kvm-and-xen-sap,Cloud-sap,VMware-sap,MS-HyperV-sap">
+        <package name="patterns-sap-base_sap_server"/>
+   </packages>
+
+</image>
