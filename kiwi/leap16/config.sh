@@ -65,6 +65,81 @@ baseSetRunlevel 3
 suseImportBuildKey
 
 #======================================
+# Vagrant
+#--------------------------------------
+function vagrantSetup {
+    # This function configures the image to work as a vagrant box.
+    # These are the following steps:
+    # - add the vagrant user
+    # - add the vagrant user to /etc/sudoers
+    # - insert the insecure vagrant ssh key
+    # - create the default /vagrant share
+    # - apply some recommended ssh settings
+
+    echo "Add user vagrant"
+    # create vagrant user
+    useradd vagrant
+
+    # insert the default insecure ssh key from here:
+    # https://github.com/hashicorp/vagrant/blob/master/keys/vagrant.pub
+    mkdir -p /home/vagrant/.ssh/
+    chmod 0700 /home/vagrant/.ssh/
+    echo "ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEA6NF8iallvQVp22WDkTkyrtvp9eWW6A8YVr+kz4TjGYe7gHzIw+niNltGEFHzD8+v1I2YJ6oXevct1YeS0o9HZyN1Q9qgCgzUFtdOKLv6IedplqoPkcmF0aYet2PkEDo3MlTBckFXPITAMzF8dJSIFo9D8HfdOV0IAdx4O7PtixWKn5y2hMNG0zQPyUecp4pzC6kivAIhyfHilFR61RGL+GPXQ2MWZWFYbAGjyiYJnAmCP3NOTd0jMZEnDkbUvxhMmBYSdETk1rRgm+R4LOzFUGaHqHDLKLX+FIPKcF96hrucXzcWyLbIbEgE98OHlnVYCzRdK8jlqm8tehUc9c9WhQ== vagrant insecure public key" > /home/vagrant/.ssh/authorized_keys
+    chmod 0600 /home/vagrant/.ssh/authorized_keys
+    chown -R vagrant:vagrant /home/vagrant/
+
+    # apply recommended ssh settings for vagrant boxes
+    SSHD_CONFIG=/etc/ssh/sshd_config.d/99-vagrant.conf
+    if [[ ! -d "$(dirname ${SSHD_CONFIG})" ]]; then
+        SSHD_CONFIG=/etc/ssh/sshd_config
+        # prepend the settings, so that they take precedence
+        echo -e "UseDNS no\nGSSAPIAuthentication no\n$(cat ${SSHD_CONFIG})" > ${SSHD_CONFIG}
+    else
+        echo -e "UseDNS no\nGSSAPIAuthentication no" > ${SSHD_CONFIG}
+    fi
+
+    # vagrant assumes that it can sudo without a password
+    # => add the vagrant user to the sudoers list
+    echo "vagrant ALL=(ALL)NOPASSWD:ALL" > /etc/sudoers.d/vagrant
+    visudo -cf /etc/sudoers.d/vagrant
+    chmod 440 /etc/sudoers.d/vagrant
+
+    # the default shared folder
+    mkdir -p /vagrant
+    chown -R vagrant:vagrant /vagrant
+
+    # SSH service
+    baseInsertService sshd
+
+    # start vboxsf service only if the guest tools are present
+    if rpm -q virtualbox-guest-tools 2> /dev/null; then
+        echo vboxsf > /etc/modules-load.d/vboxsf.conf
+    fi
+
+    # drop any network udev rules for libvirt, so that the networks are called
+    # ethX
+    # this is not required for Virtualbox as it handles networking differently
+    # and doesn't need this hack
+    if [ "${kiwi_profiles}" != "virtualbox" ]; then
+        rm -f /etc/udev/rules.d/*-net.rules
+    fi
+
+    # setup DHCP on eth0 properly
+    mkdir /etc/sysconfig/network/
+    cat << EOF > /etc/sysconfig/network/ifcfg-eth0
+STARTMODE=auto
+BOOTPROTO=dhcp
+EOF
+}
+
+#======================================
+# Configure Vagrant specifics
+#--------------------------------------
+if [[ "$kiwi_profiles" == *"Vagrant"* ]]; then
+vagrantSetup
+fi
+
+#======================================
 # Enable sshd
 #--------------------------------------
 baseInsertService sshd
@@ -82,6 +157,15 @@ if [[ "$kiwi_profiles" =~ s390x-(dasd|fba|fcp) ]]; then
     systemctl enable systemd-firstboot
     # Enable prompting for the root password
     echo 'root:!unprovisioned' | chpasswd -e
+elif [[ "$kiwi_profiles" =~ Vagrant ]]; then
+
+    echo "Disable jeos-firstboot.service for Vagrant boxes"
+    systemctl disable jeos-firstboot.service
+    systemctl mask jeos-firstboot.service
+    echo "Disable systemd-firstboot.service for Vagrant boxes"
+    systemctl disable systemd-firstboot.service
+    systemctl mask systemd-firstboot.service
+
 elif rpm -q --whatprovides jeos-firstboot >/dev/null; then
     # Enable jeos-firstboot
     mkdir -p /var/lib/YaST2
@@ -168,25 +252,22 @@ if ! [[ "$kiwi_profiles" == *"s390x"* ]]; then
 	cmdline+=('console=ttyS0,115200' 'console=tty0')
 fi
 
+if [[ "$kiwi_profiles" == *"Cloud"* ]]; then
+	cmdline+=('net.ifnames=0')
+fi
+
 if [[ "$kiwi_profiles" == *"HyperV"* ]]; then
 	cmdline+=('earlyprintk=ttyS0,115200' 'rootdelay=300')
 fi
 
 # Configure SELinux if installed
-# For *-sap* images default to "Permissive"
-# All other images stay "Enforcing"
 if [[ -e /etc/selinux/config ]]; then
 	cmdline+=('security=selinux' 'selinux=1')
 
-	if [[ "$kiwi_profiles" == *"-sap"* ]]; then
-		sed -i -e 's|^SELINUX=.*|SELINUX=permissive|g' \
-			"/etc/selinux/config"
-	else
-		sed -i -e 's|^SELINUX=.*|SELINUX=enforcing|g' \
-			-e 's|^SELINUXTYPE=.*|SELINUXTYPE=targeted|g' \
-			"/etc/selinux/config"
-	fi
-fi 
+	sed -i -e 's|^SELINUX=.*|SELINUX=enforcing|g' \
+	       -e 's|^SELINUXTYPE=.*|SELINUXTYPE=targeted|g' \
+	       "/etc/selinux/config"
+fi
 
 if rpm -q sdbootutil; then
 	mkdir -p /etc/kernel
