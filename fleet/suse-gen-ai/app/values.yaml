@@ -26,6 +26,20 @@ ollama:
   persistentVolume:
     enabled: true
     size: 100Gi
+  ingress:
+    enabled: true
+    annotations:
+      cert-manager.io/cluster-issuer: local-issuer
+    class: traefik
+    hosts:
+      - host: ollama.lab.suse
+        paths:
+          - path: /
+            pathType: Prefix
+    tls:
+      - secretName: ollama-tls
+        hosts:
+          - ollama.lab.suse
 open-webui:
   image:
     tag: 0.6.41
