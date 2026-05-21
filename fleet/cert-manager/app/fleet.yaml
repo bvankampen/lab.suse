@@ -6,6 +6,18 @@ helm:
   version: 1.19.2
   valuesFiles:
     - values.yaml
+diff:
+  comparePatches:
+    - apiVersion: admissionregistration.k8s.io/v1
+      kind: MutatingWebhookConfiguration
+      name: cert-manager-webhook
+      operations:
+        - { "op": "remove", "path": "/webhooks/0/clientConfig/caBundle" }
+    - apiVersion: admissionregistration.k8s.io/v1
+      kind: ValidatingWebhookConfiguration
+      name: cert-manager-webhook
+      operations:
+        - { "op": "remove", "path": "/webhooks/0/clientConfig/caBundle" }
 
 overrideTargets:
   - clusterSelector:
