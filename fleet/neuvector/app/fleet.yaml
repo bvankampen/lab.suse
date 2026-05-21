@@ -10,6 +10,13 @@ helm:
   takeOwnership: true
 diff:
   comparePatches:
+    - apiVersion: v1
+      kind: Secret
+      name: neuvector-internal-certs
+      namespace: cattle-neuvector-system
+      operations:
+        - op: remove
+      path: /data
     - apiVersion: apps/v1
       kind: Deployment
       name: neuvector-scanner-pod
