@@ -30,6 +30,7 @@ ollama:
     enabled: true
     annotations:
       cert-manager.io/cluster-issuer: local-issuer
+      traefik.ingress.kubernetes.io/router.entrypoints: web, websecure
     class: traefik
     hosts:
       - host: ollama.lab.suse
