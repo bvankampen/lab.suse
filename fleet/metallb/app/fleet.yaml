@@ -10,19 +10,20 @@ diff:
       kind: CustomResourceDefinition
       name: addresspools.metallb.io
       operations:
-        - {
-            "op": "remove",
-            "path": "/spec/conversion/webhook/clientConfig/caBundle",
-          }
+        - op: remove
+          path: "/spec/conversion/webhook/clientConfig/caBundle"
     - apiVersion: apiextensions.k8s.io/v1
       kind: CustomResourceDefinition
       name: bgppeers.metallb.io
       operations:
-        - {
-            "op": "remove",
-            "path": "/spec/conversion/webhook/clientConfig/caBundle",
-          }
-
+        - op: remove
+          path: "/spec/conversion/webhook/clientConfig/caBundle"
+    - apiVersion: admissionregistration.k8s.io/v1
+      kind: ValidatingWebhookConfiguration
+      name: metallb-webhook-configuration
+      operations:
+        - op: remove
+          path: /webhooks
 overrideTargets:
   - clusterSelector:
       matchLabels:
