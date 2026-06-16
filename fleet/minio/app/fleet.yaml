@@ -1,7 +1,7 @@
 defaultNamespace: minio
 
 helm:
-  chart: oci://harbor.lan.ping6.nl/dp.apps.rancher.io/charts/minio
+  chart: oci://registry.lab.suse/dp.apps.rancher.io/charts/minio
   releaseName: minio
   version: 5.4.0
   valuesFiles:

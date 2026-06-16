@@ -1,7 +1,7 @@
 defaultNamespace: external-secrets-system
 
 helm:
-  chart: oci://harbor.lan.ping6.nl/dp.apps.rancher.io/charts/external-secrets-operator
+  chart: oci://registry.lab.suse/dp.apps.rancher.io/charts/external-secrets-operator
   releaseName: external-secrets
   version: 0.20.4
 

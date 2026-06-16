@@ -1,7 +1,7 @@
 defaultNamespace: postgresql
 
 helm:
-  chart: oci://harbor.lan.ping6.nl/dp.apps.rancher.io/charts/postgresql
+  chart: oci://registry.lab.suse/dp.apps.rancher.io/charts/postgresql
   releaseName: postgresql
   version: 0.5.5
   valuesFiles:

@@ -1,7 +1,7 @@
 defaultNamespace: metallb-system
 
 helm:
-  chart: oci://harbor.lan.ping6.nl/dp.apps.rancher.io/charts/metallb
+  chart: oci://registry.lab.suse/dp.apps.rancher.io/charts/metallb
   releaseName: metallb
   version: 0.15.3
 diff:

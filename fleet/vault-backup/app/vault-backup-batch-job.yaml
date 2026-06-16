@@ -14,7 +14,7 @@ spec:
         spec:
           containers:
             - name: vault-backup
-              image: harbor.lan.ping6.nl/library/vault-backup/vault-backup:latest
+              image: registry.lab.suse/library/vault-backup/vault-backup:latest
               envFrom:
                 - secretRef:
                     name: vault-backup-config
