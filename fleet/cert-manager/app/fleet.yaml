@@ -1,7 +1,7 @@
 defaultNamespace: cert-manager
 
 helm:
-  chart: oci://harbor.lan.ping6.nl/dp.apps.rancher.io/charts/cert-manager
+  chart: oci://registry.lab.suse/dp.apps.rancher.io/charts/cert-manager
   releaseName: cert-manager
   version: 1.20.0
   valuesFiles:
