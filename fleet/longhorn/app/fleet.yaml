@@ -6,7 +6,7 @@ helm:
   repo: https://charts.rancher.io
   chart: longhorn
   releaseName: longhorn
-  version: 108.2.0+up1.10.1
+  version: 109.3.1+up1.11.2
   valuesFiles:
     - values.yaml
 
