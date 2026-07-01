@@ -16,10 +16,10 @@ grafana:
     type: pvc
 prometheus:
   prometheusSpec:
-    additionalScrapeConfigs:
-      - job_name: "nvitop-exporter"
-        static_configs:
-          - targets: ["192.168.10.98:5050"]
+    # additionalScrapeConfigs:
+    #   - job_name: "nvitop-exporter"
+    #     static_configs:
+    #       - targets: ["192.168.10.98:5050"]
     retentionSize: 50GiB
     storageSpec:
       volumeClaimTemplate:
@@ -28,7 +28,7 @@ prometheus:
             - ReadWriteOnce
           resources:
             requests:
-              storage: 50Gi
+              storage: 75Gi
 rke2ControllerManager:
   enabled: true
 rke2Etcd:
