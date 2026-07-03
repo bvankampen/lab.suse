@@ -67,7 +67,7 @@ spec:
                 name: config
       dnsPolicy: ClusterFirst
       restartPolicy: Always
-      runtimeClassName: nvidia
+      # runtimeClassName: nvidia
       terminationGracePeriodSeconds: 30
       tolerations:
         - effect: NoSchedule

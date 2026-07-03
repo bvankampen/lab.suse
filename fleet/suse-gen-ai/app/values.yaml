@@ -22,7 +22,7 @@ ollama:
       enabled: true
       type: "nvidia"
       number: 1
-  runtimeClassName: "nvidia"
+  # runtimeClassName: "nvidia"
   persistentVolume:
     enabled: true
     size: 100Gi

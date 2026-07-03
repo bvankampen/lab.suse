@@ -23,8 +23,8 @@ singleuser:
     - display_name: Pytorch (GPU Node)
       kubespawner_override:
         image: quay.io/jupyter/pytorch-notebook:cuda12-pytorch-2.6.0
-        extra_pod_config:
-          runtimeClassName: nvidia
+        # extra_pod_config:
+        #   runtimeClassName: nvidia
         node_selector:
           "nvidia.com/gpu.present": "true"
         extra_resource_limits:
