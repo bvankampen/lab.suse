@@ -1,10 +1,7 @@
-cdi:
-  nriPluginEnabled: true
 driver:
   repository: registry.suse.com/third-party/nvidia
   usePrecompiled: true
   version: 595
-## time-slicing configuration
 devicePlugin:
   config:
     name: time-slicing-config
@@ -20,3 +17,7 @@ devicePlugin:
             resources:
             - name: nvidia.com/gpu
               replicas: 16
+toolkit:
+  env:
+    - name: CONTAINERD_SOCKET
+      value: /run/k3s/containerd/containerd.sock
