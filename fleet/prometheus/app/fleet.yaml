@@ -1,0 +1,13 @@
+defaultNamespace: prometheus
+
+helm:
+  chart: oci://registry.lab.suse/dp.apps.rancher.io/charts/prometheus
+  releaseName: prometheus
+  version: 29.13.1
+  valuesFiles:
+    - values.yaml
+
+overrideTargets:
+  - clusterSelector:
+      matchLabels:
+        fleet-app-prometheus: "true"

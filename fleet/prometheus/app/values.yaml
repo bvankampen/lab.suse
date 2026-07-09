@@ -1,0 +1,6 @@
+server:
+  presistentVolume:
+    enabled: true
+    size: 50Gi
+alertmanager:
+  enabled: false
