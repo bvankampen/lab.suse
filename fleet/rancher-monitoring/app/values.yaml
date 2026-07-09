@@ -10,7 +10,7 @@ grafana:
       org_role: Admin
   persistence:
     accessModes:
-      - ReadWriteMany
+      - ReadWriteOnce
     enabled: true
     size: 10Gi
     type: pvc
