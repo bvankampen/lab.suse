@@ -12,7 +12,8 @@ grafana:
     accessModes:
       - ReadWriteOnce
     enabled: true
-    size: 10Gi
+    storageClassName: nfs-ssd
+    size: 15Gi
     type: pvc
 prometheus:
   prometheusSpec:
