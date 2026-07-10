@@ -2,7 +2,7 @@ defaultNamespace: kube-system
 
 helm:
   repo: https://project-hami.github.io/HAMi/
-  chart: hami/hami
+  chart: hami
   releaseName: hami
   valuesFiles:
     - values.yaml
