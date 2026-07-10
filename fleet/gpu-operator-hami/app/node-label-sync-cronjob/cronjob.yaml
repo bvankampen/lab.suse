@@ -1,0 +1,28 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: gpu-label-syncer
+  namespace: kube-system
+spec:
+  schedule: "*/5 * * * *" # Runs every 5 minutes
+  concurrencyPolicy: Forbid
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          serviceAccountName: node-label-sync-sa
+          restartPolicy: OnFailure
+          containers:
+            - name: node-label-syncer
+              image: dp.apps.rancher.io/containers/kubectl:1.36.2
+              command:
+                - /bin/sh
+                - -c
+                - |
+                  echo "Syncing GPU labels..."
+                  # Get all nodes with the NVIDIA label and apply the gpu=on label
+                  FOR_NODES=$(kubectl get nodes -l nvidia.com/gpu.present=true -o jsonpath='{.items[*].metadata.name}')
+                  for node in $FOR_NODES; do
+                    kubectl label node $node gpu=on --overwrite
+                    echo "Labeled $node with gpu=on"
+                  done
