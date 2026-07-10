@@ -2,7 +2,6 @@ apiVersion: v1
 kind: ServiceAccount
 metadata:
   name: node-label-sync-sa
-  namespace: kube-system
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
@@ -20,7 +19,6 @@ metadata:
 subjects:
   - kind: ServiceAccount
     name: node-label-sync-sa
-    namespace: kube-system
 roleRef:
   kind: ClusterRole
   name: node-label-sync-role
