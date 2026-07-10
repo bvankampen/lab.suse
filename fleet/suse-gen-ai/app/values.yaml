@@ -39,17 +39,17 @@ ollama:
           - ollama.lab.suse
   resources:
     requests:
-      memory: "4Gi"
-      cpu: "500m"
-      nvidia.com/gpu: "1"
+      memory: 4Gi
+      cpu: 500m
+      nvidia.com/gpu: 1
       nvidia.com/gpucores: 50
-      nvidia.com/gpumem-percentage: "50"
+      nvidia.com/gpumem: 4Gi
     limits:
-      memory: "8Gi"
-      cpu: "2"
-      nvidia.com/gpu: "1"
+      memory: 8Gi
+      cpu: 2
+      nvidia.com/gpu: 1
       nvidia.com/gpucores: 50
-      nvidia.com/gpumem-percentage: "50"
+      nvidia.com/gpumem: 4Gi
 open-webui:
   image:
     tag: 0.6.41
