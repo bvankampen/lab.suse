@@ -51,9 +51,18 @@ spec:
             periodSeconds: 5
             successThreshold: 1
             timeoutSeconds: 3
-          resources:
-            limits:
+            requests:
+              memory: "4Gi"
+              cpu: "500m"
               nvidia.com/gpu: "1"
+              nvidia.com/gpucores: 0
+              nvidia.com/gpumem: 0
+            limits:
+              memory: "8Gi"
+              cpu: "4"
+              nvidia.com/gpu: "1"
+              nvidia.com/gpucores: 100
+              nvidia.com/gpumem: "8Gi"
           terminationMessagePath: /dev/termination-log
           terminationMessagePolicy: File
           volumeMounts:
