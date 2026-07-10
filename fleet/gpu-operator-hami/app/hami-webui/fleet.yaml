@@ -2,7 +2,7 @@ defaultNamespace: kube-system
 
 helm:
   repo: https://project-hami.github.io/hami-webui/
-  chart: hami-webui/hami-webui
+  chart: hami-webui
   releaseName: hami-webui
   valuesFiles:
     - values.yaml
