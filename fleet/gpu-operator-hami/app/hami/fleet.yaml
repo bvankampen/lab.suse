@@ -11,3 +11,6 @@ overrideTargets:
   - clusterSelector:
       matchLabels:
         fleet-app-gpu-operator-hami: "true"
+
+dependsOn:
+  - name: lab-suse-fleet-gpu-operator-hami-app-gpu-operator
