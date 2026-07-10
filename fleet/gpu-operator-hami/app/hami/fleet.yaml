@@ -1,0 +1,13 @@
+defaultNamespace: kube-system
+
+helm:
+  repo: https://project-hami.github.io/HAMi/
+  chart: hami/hami
+  releaseName: hami
+  valuesFiles:
+    - values.yaml
+
+overrideTargets:
+  - clusterSelector:
+      matchLabels:
+        fleet-app-gpu-operator-hami: "true"

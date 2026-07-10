@@ -1,0 +1,7 @@
+devicePlugin:
+  runtimeClassName: nvidia
+scheduler:
+  kubeScheduler:
+    imageTag: v1.35.6
+devicePlugin:
+  runtimeClassName: nvidia

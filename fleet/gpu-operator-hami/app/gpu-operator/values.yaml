@@ -1,0 +1,79 @@
+# Helm values for NVIDIA GPU Operator to deploy ONLY the NVIDIA GPU driver.
+# All other components are explicitly disabled.
+#
+# Enabled:
+# - driver
+# - nfd
+# - gfd
+# - toolkit
+
+cdi:
+  enabled: false
+
+# Enable only the GPU driver
+driver:
+  enabled: true
+  repository: registry.suse.com/third-party/nvidia
+  usePrecompiled: true
+  version: 595
+
+# Enable Node Feature Discovery (NFD)
+nfd:
+  enabled: true
+
+# Enable the NVIDIA Container Toolkit
+toolkit:
+  enabled: true
+  env:
+    - name: CONTAINERD_SOCKET
+      value: /run/k3s/containerd/containerd.sock
+
+      # Disable Kubernetes Device Plugin
+devicePlugin:
+  enabled: false
+
+# Disable DCGM and DCGM Exporter
+dcgm:
+  enabled: false
+dcgmExporter:
+  enabled: false
+
+# Enable GPU Feature Discovery (GFD)
+gfd:
+  enabled: true
+
+# Disable MIG (Multi-Instance GPU) Manager
+migManager:
+  enabled: false
+
+# Disable Node Status Exporter
+nodeStatusExporter:
+  enabled: false
+
+# Disable GPUDirect Storage (GDS) and GPUDirect RDMA (gdrcopy)
+gds:
+  enabled: false
+gdrcopy:
+  enabled: false
+
+# Disable vGPU components
+vgpuManager:
+  enabled: false
+vgpuDeviceManager:
+  enabled: false
+
+# Disable VFIO Manager (for GPU passthrough to VMs)
+vfioManager:
+  enabled: false
+
+# Disable Sandbox/VM device plugins (KubeVirt, Kata, etc.)
+sandboxDevicePlugin:
+  enabled: false
+kataSandboxDevicePlugin:
+  enabled: false
+kataManager:
+  enabled: false
+
+# Disable Confidential Computing (CC) Manager
+ccManager:
+  enabled: false

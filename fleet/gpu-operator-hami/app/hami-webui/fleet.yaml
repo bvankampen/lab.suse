@@ -1,0 +1,13 @@
+defaultNamespace: kube-system
+
+helm:
+  repo: https://project-hami.github.io/hami-webui/
+  chart: hamio-webui/hami-webui
+  releaseName: hami-webui
+  valuesFiles:
+    - values.yaml
+
+overrideTargets:
+  - clusterSelector:
+      matchLabels:
+        fleet-app-gpu-operator-hami-webui: "true"

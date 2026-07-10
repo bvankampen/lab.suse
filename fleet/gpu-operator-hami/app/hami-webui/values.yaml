@@ -1,0 +1,27 @@
+externalPrometheus:
+  enabled: true
+  address: http://rancher-monitoring-prometheus.cattle-monitoring-system.svc.cluster.local:9090
+ingress:
+  enabled: true
+  annotations:
+    cert-manager.io/cluster-issuer: local-issuer
+  hosts:
+    - host: hami.lab.suse
+      paths:
+        - path: /
+          pathType: ImplementationSpecific
+  tls:
+    - secretName: hami-ingress
+      hosts:
+        - hami.lab.suse
+
+env:
+  frontend:
+    - name: TZ
+      value: "Europe/Amsterdam"
+  backend:
+    - name: TZ
+      value: "Europe/Amsterdam"
+
+dcgm-exporter:
+  runtimeClassName: nvidia
