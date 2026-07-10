@@ -5,4 +5,4 @@ scheduler:
     imageTag: v1.35.6
 devicePlugin:
   runtimeClassName: nvidia
-  deviceMemoryScaling: 2
+  # deviceMemoryScaling: 2
