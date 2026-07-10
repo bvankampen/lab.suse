@@ -11,13 +11,9 @@ ollama:
   ollama:
     models:
       pull:
-        - "llama3.2:3b"
-        - "gemma3:4b"
-        - "gemma:2b"
-        - "deepseek-r1:8b"
-        - "qwen2.5-coder:7b"
+        - "deepseek-r1:1.5b"
       run:
-        - "deepseek-r1:8b"
+        - "deepseek-r1:1.5b"
     gpu:
       enabled: true
       type: "nvidia"
@@ -41,6 +37,19 @@ ollama:
       - secretName: ollama-tls
         hosts:
           - ollama.lab.suse
+  resources:
+    requests:
+      memory: "4Gi"
+      cpu: "500m"
+      nvidia.com/gpu: "1"
+      nvidia.com/gpucores: 50
+      nvidia.com/gpumem-percentage: "50"
+    limits:
+      memory: "8Gi"
+      cpu: "2"
+      nvidia.com/gpu: "1"
+      nvidia.com/gpucores: 50
+      nvidia.com/gpumem-percentage: "50"
 open-webui:
   image:
     tag: 0.6.41
