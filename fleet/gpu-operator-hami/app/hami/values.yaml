@@ -1,8 +1,5 @@
-devicePlugin:
-  runtimeClassName: nvidia
+# devicePlugin:
+#   runtimeClassName: nvidia
 scheduler:
   kubeScheduler:
     imageTag: v1.35.6
-devicePlugin:
-  runtimeClassName: nvidia
-  # deviceMemoryScaling: 2

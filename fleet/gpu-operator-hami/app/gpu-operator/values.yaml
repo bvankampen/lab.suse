@@ -25,17 +25,17 @@ nfd:
 # Enable the NVIDIA Container Toolkit
 toolkit:
   enabled: true
-  env:
-    - name: CONTAINERD_SOCKET
-      value: /run/k3s/containerd/containerd.sock
-    - name: CONTAINERD_CONFIG
-      value: /var/lib/rancher/rke2/agent/etc/containerd/config.toml.tmpl
-    - name: CONTAINERD_RUNTIME_CLASS
-      value: nvidia
-    - name: CONTAINERD_SET_AS_DEFAULT
-      value: "true"
-
-      # Disable Kubernetes Device Plugin
+#   env:
+#     - name: CONTAINERD_SOCKET
+#       value: /run/k3s/containerd/containerd.sock
+#     - name: CONTAINERD_CONFIG
+#       value: /var/lib/rancher/rke2/agent/etc/containerd/config.toml.tmpl
+#     - name: CONTAINERD_RUNTIME_CLASS
+#       value: nvidia
+#     - name: CONTAINERD_SET_AS_DEFAULT
+#       value: "true"
+#
+# Disable Kubernetes Device Plugin
 devicePlugin:
   enabled: false
 
