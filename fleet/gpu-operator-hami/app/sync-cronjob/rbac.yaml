@@ -19,6 +19,7 @@ metadata:
 subjects:
   - kind: ServiceAccount
     name: node-label-sync-sa
+    namespace: gpu-operator-system
 roleRef:
   kind: ClusterRole
   name: node-label-sync-role
