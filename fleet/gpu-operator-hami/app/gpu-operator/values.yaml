@@ -8,7 +8,8 @@
 # - toolkit
 
 cdi:
-  enabled: false
+  #enabled: false
+  nriPluginEnabled: true
 
 # Enable only the GPU driver
 driver:
