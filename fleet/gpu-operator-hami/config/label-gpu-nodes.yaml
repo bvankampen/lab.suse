@@ -7,7 +7,14 @@ spec:
     - name: label-gpu-node
       labels:
         gpu: "on"
-      matchFeatures:
-        - feature: rule.matched
-          matchExpressions:
-            nvidia.com/gpu.present: { op: IsTrue }
+      matchAny:
+        # Match 1: NVIDIA GPUs via Vendor ID
+        - matchFeatures:
+            - feature: pci.device
+              matchExpressions:
+                vendor: { op: In, value: ["10de"] }
+        # Match 2: AMD GPUs via Vendor ID
+        - matchFeatures:
+            - feature: pci.device
+              matchExpressions:
+                vendor: { op: In, value: ["1002"] }
