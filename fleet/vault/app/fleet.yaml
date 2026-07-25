@@ -3,7 +3,7 @@ defaultNamespace: vault
 helm:
   chart: oci://registry.lab.suse/dp.apps.rancher.io/charts/vault
   releaseName: vault
-  version: 0.31.0
+  version: 0.34.0
 
 targetCustomizations:
   - name: homelab
