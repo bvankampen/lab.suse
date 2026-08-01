@@ -1,0 +1,23 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: gpsd-ui
+  annotations:
+    cert-manager.io/cluster-issuer: local-issuer
+spec:
+  ingressClassName: traefik
+  tls:
+    - hosts:
+        - gps.lan.ping6.nl
+      secretName: gpsd-ui-tls
+  rules:
+    - host: gps.lan.ping6.nl
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: gpsd-ui
+                port:
+                  number: 80

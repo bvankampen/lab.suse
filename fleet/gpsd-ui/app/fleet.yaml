@@ -1,0 +1,6 @@
+defaultNamespace: gpsd-ui
+
+overrideTargets:
+  - clusterSelector:
+      matchLabels:
+        fleet-app-gpsd-ui: true
