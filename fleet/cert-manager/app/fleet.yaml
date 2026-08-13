@@ -3,7 +3,7 @@ defaultNamespace: cert-manager
 helm:
   chart: oci://registry.lab.suse/dp.apps.rancher.io/charts/cert-manager
   releaseName: cert-manager
-  version: 1.20.0
+  version: 1.21.1
   valuesFiles:
     - values.yaml
 diff:
