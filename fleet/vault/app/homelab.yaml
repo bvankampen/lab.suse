@@ -29,3 +29,5 @@ server:
       - hosts:
           - vault.lan.ping6.nl
         secretName: vault-tls
+injector:
+  enabled: false
