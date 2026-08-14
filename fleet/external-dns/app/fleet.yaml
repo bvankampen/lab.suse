@@ -7,6 +7,9 @@ helm:
   valuesFiles:
     - values.yaml
 
+  values:
+    image:
+      tag: 0.21.0-16.2
 overrideTargets:
   - clusterSelector:
       matchLabels:
