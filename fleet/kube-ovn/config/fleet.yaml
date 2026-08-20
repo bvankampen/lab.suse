@@ -1,6 +1,6 @@
 defaultNamespace: kube-system
 dependsOn:
-  - name: lab-suse-fleet-kube-ovn
+  - name: lab-suse-fleet-kube-ovn-app
 
 targetCustomizations:
   - name: demolab

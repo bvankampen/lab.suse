@@ -1,2 +1,4 @@
 cni:
   nonPrimaryCNI: true
+masterNodesLabels:
+  node-role.kubernetes.io/control-plane: "true"
