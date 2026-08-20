@@ -10,4 +10,4 @@ helm:
 overrideTargets:
   - clusterSelector:
       matchLabels:
-        fleet-kube-ovn: "true"
+        fleet-app-kube-ovn: "true"

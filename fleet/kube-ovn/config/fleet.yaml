@@ -1,4 +1,6 @@
 defaultNamespace: kube-system
+dependsOn:
+  - name: lab-suse-fleet-kube-ovn
 
 targetCustomizations:
   - name: demolab
@@ -12,4 +14,4 @@ targetCustomizations:
 overrideTargets:
   - clusterSelector:
       matchLabels:
-        fleet-kube-ovn: "true"
+        fleet-app-kube-ovn: "true"
