@@ -1,0 +1,15 @@
+defaultNamespace: kube-system
+
+targetCustomizations:
+  - name: demolab
+    clusterSelector:
+      matchLabels:
+        management.cattle.io/cluster-display-name: demolab
+    yaml:
+      overlays:
+        - demolab
+
+overrideTargets:
+  - clusterSelector:
+      matchLabels:
+        fleet-kube-ovn: "true"
