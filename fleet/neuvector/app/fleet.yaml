@@ -48,8 +48,9 @@ diff:
       operations:
         - { "op": "remove", "path": "/spec/leaseTransitions" }
 ignore:
-  - name: neuvector-internal-certs
-    kind: Secret
+  conditions:
+    - name: neuvector-internal-certs
+      kind: Secret
 
 targetCustomizations:
   - name: homelab
