@@ -1,6 +1,4 @@
 defaultNamespace: default
-dependsOn:
-  - name: lab-suse-fleet-kube-ovn-app
 
 targetCustomizations:
   - name: demolab
