@@ -4,6 +4,6 @@ metadata:
   name: subnet-secondary
 spec:
   vpc: vpc-secondary
-  cidr: "10.100.0.0/16"
+  cidrBlock: "10.100.0.0/16"
   gateway: "10.100.0.1"
   provider: kube-ovn-vpc-network.default.ovn
