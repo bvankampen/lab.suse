@@ -1,7 +1,0 @@
-apiVersion: kubeovn.io/v1
-kind: Vpc
-metadata:
-  name: vpc-secondary
-spec:
-  namespaces:
-  - default

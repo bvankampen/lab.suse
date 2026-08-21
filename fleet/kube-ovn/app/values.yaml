@@ -1,5 +1,0 @@
-cni:
-  nonPrimaryCNI: true
-  configPriority: "99"
-masterNodesLabels:
-  node-role.kubernetes.io/control-plane: "true"

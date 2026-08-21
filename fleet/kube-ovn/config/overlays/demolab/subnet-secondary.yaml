@@ -1,9 +1,0 @@
-apiVersion: kubeovn.io/v1
-kind: Subnet
-metadata:
-  name: subnet-secondary
-spec:
-  vpc: vpc-secondary
-  cidrBlock: "10.100.0.0/16"
-  gateway: "10.100.0.1"
-  provider: kube-ovn-vpc-network.default.ovn
