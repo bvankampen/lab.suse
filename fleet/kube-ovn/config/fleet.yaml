@@ -1,4 +1,4 @@
-defaultNamespace: kube-system
+defaultNamespace: default
 dependsOn:
   - name: lab-suse-fleet-kube-ovn-app
 
