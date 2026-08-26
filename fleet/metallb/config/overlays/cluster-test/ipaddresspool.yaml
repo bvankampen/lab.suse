@@ -3,4 +3,6 @@ kind: IPAddressPool
 metadata:
   name: default
   namespace: metallb-system
-spec: {}
+spec:
+  addresses:
+    - 172.16.96.10-172.16.96.100
