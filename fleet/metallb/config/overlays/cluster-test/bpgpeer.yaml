@@ -6,4 +6,3 @@ spec:
   myASN: 65001
   peerASN: 65030
   peerAddress: 192.168.96.1
-  peerPort: 180
