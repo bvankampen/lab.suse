@@ -7,13 +7,13 @@ targetCustomizations:
     yaml:
       overlays:
         - demolab
-  - name: cluster-gpu
+  - name: cluster-test
     clusterSelector:
       matchLabels:
-        management.cattle.io/cluster-display-name: cluster-gpu
+        management.cattle.io/cluster-display-name: cluster-test
     yaml:
       overlays:
-        - cluster-gpu
+        - cluster-test
 overrideTargets:
   - clusterSelector:
       matchLabels:
