@@ -1,0 +1,16 @@
+replicaCount: 1
+
+ingress:
+  enabled: true
+  className: traefik
+  annotations:
+    cert-manager.io/cluster-issuer: local-issuer
+  hosts:
+    - host: www.test.lab.suse
+      paths:
+        - path: /
+          pathType: Prefix
+  tls:
+    - hosts:
+        - www.test.lab.suse
+      secretName: tls-ingress

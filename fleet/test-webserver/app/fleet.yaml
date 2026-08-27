@@ -1,0 +1,13 @@
+defaultNamespace: test-webserver
+
+helm:
+  chart: oci://registry.lab.suse/charts/test-webserver
+  releaseName: test-webserver
+  version: 0.1.0
+  valuesFiles:
+    - values.yaml
+
+overrideTargets:
+  - clusterSelector:
+      matchLabels:
+        fleet-app-test-webserver: "true"
