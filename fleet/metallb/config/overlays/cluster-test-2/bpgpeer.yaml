@@ -1,0 +1,8 @@
+apiVersion: metallb.io/v1beta2
+kind: BGPPeer
+metadata:
+  name: firewall
+spec:
+  myASN: 65010
+  peerASN: 65030
+  peerAddress: 10.200.0.1

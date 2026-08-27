@@ -13,7 +13,7 @@ targetCustomizations:
         management.cattle.io/cluster-display-name: cluster-test
     yaml:
       overlays:
-        - cluster-test
+        - cluster-test-2
 overrideTargets:
   - clusterSelector:
       matchLabels:
