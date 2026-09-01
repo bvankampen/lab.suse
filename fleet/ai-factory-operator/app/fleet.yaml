@@ -1,0 +1,12 @@
+defaultNamespace: aif-operator
+
+helm:
+  chart: oci://ghcr.io/suse/chart/aif-operator
+  releaseName: aif-operator
+  version: 2.10
+  takeOwnership: true
+
+overrideTargets:
+  - clusterSelector:
+      matchLabels:
+        fleet-app-aif-operator: "true"
