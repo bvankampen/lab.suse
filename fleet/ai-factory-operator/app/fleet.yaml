@@ -5,6 +5,8 @@ helm:
   releaseName: aif-operator
   version: 2.1.0
   takeOwnership: true
+  valuesFiles:
+    - values.yaml
 
 overrideTargets:
   - clusterSelector:
