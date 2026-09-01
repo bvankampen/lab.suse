@@ -1,0 +1,6 @@
+defaultNamespace: aif-operator
+
+overrideTargets:
+  - clusterSelector:
+      matchLabels:
+        fleet-app-aif-operator: "true"
