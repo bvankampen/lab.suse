@@ -3,7 +3,7 @@ defaultNamespace: aif-operator
 helm:
   chart: oci://ghcr.io/suse/chart/aif-operator
   releaseName: aif-operator
-  version: 2.10
+  version: 2.1.0
   takeOwnership: true
 
 overrideTargets:
