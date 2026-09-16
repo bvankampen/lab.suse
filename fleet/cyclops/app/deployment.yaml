@@ -23,7 +23,9 @@ spec:
       containers:
         - name: cyclops
           image: registry.lab.suse/library/cyclops:latest
-          imagePullPolicy: IfNotPresent
+          # The cyclops repo's publish.sh moves the :latest tag, so a node
+          # holding a cached copy would keep running the previous build.
+          imagePullPolicy: Always
           args:
             - -seed-admin
           ports:
