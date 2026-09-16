@@ -1,6 +1,0 @@
-defaultNamespace: cyclops
-
-overrideTargets:
-  - clusterSelector:
-      matchLabels:
-        fleet-app-cyclops: "true"
